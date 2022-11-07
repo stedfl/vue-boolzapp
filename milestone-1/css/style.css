@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: font-family: 'Lato', sans-serif;;
+  font-family: 'Lato', sans-serif;
 }
 
 #app {
@@ -25,7 +25,7 @@ body {
 
 .back-bar.bottom {
   height: 88vh;
-  background-color: #dadbd3;
+  background-image: linear-gradient(#dddbd1, #d3dbdb);
 }
 
 .container {
@@ -35,5 +35,43 @@ body {
   transform: translateX(-50%);
   height: calc(100vh - 60px);
   width: 75%;
-  background-color: red;
+  display: flex;
 }
+
+.contacts-bar {
+  height: 100%;
+  width: 35%;
+  background-color: yellow;
+}
+
+.chat-bar {
+  height: 100%;
+  width: 65%;
+}
+
+.recipient-user-bar,
+.typing-area {
+  height: 70px;
+  display: flex;
+}
+
+.recipient-user-bar {
+  background-color: #eaeaea;
+}
+
+.recipient-user-bar.recipient,
+.typing-area {
+  border-left: 1px solid #dadbd3;
+}
+
+.chat-area {
+  width: 100%;
+  height: calc(100% - 140px);
+  overflow: auto;
+  background-image: url(../img/mine.jpg);
+}
+
+.typing-area {
+  background-color: #f3eeea;
+}
+
