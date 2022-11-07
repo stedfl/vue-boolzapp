@@ -6,33 +6,24 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #009688 0%,
+    #009688 10%,
+    #dddbd1 10%,
+    #d3dbdb 100%
+  );
 }
 
 #app {
   width: 100%;
   height: 100vh;
-  position: relative;
-}
-
-.back-bar {
-  width: 100%;
-}
-
-.back-bar.top {
-  height: 12vh;
-  background-color: #009688;
-}
-
-.back-bar.bottom {
-  height: 88vh;
-  background-image: linear-gradient(#dddbd1, #d3dbdb);
+  display: flex;
+  align-items: center;
 }
 
 .container {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   height: calc(100vh - 60px);
   width: 75%;
   display: flex;
