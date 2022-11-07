@@ -193,9 +193,60 @@ img.avatar {
   height: calc(100% - 140px);
   overflow: auto;
   background-image: url(../img/mine.jpg);
+  padding: 50px 70px;
+}
+
+.chat-area .message {
+  width: 100%;
+}
+
+.container-msg {
+  min-width: 200px;
+  max-width: 40%;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.container-msg.recipient {
+  float: left;
+  background-color: #ffffff;
+}
+
+.container-msg.user {
+  float: right;
+  background-color: #d5f9ba;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.time-msg {
+  display: block;
+  text-align: end;
+  margin-top: 5px;
+  color: gray;
+  font-size: 0.7rem;
 }
 
 .typing-area {
   background-color: #f3eeea;
+  padding: 10px 0;
+}
+
+.type-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  text-indent: 15px;
+}
+
+.typing-area .icon {
+  font-size: 1.5rem;
+  color: #6b7376;
+  margin: 0 30px;
 }
 
