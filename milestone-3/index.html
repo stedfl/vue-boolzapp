@@ -129,7 +129,7 @@
           <div class="typing-area">
             <i class="fa-regular fa-face-smile icon"></i>
             <input
-              @keyup.enter="addMessage(), doScroll=true"
+              @keyup.enter="addMessage(), botAnswerDelayed()"
               v-model="inputMessage"
               type="text"
               class="type-input"

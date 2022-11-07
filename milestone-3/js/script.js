@@ -326,7 +326,6 @@ createApp({
         const lastMessage = document.querySelector('.chat-area > :last-child');
         lastMessage.scrollIntoView();
         this.doScroll=false;
-        console.log(lastMessage.textContent);
       }
     },
 
@@ -339,18 +338,29 @@ createApp({
       }
       this.contacts[this.counterIndex].messages.push(newMessage);
       this.inputMessage = "";
-      this.botAnswer();
-
+      this.doScroll = true;
     },
 
     botAnswer() {
       const botIndex = Math.floor(Math.random() * (this.botMessages.length - 1));
-      
       const botMessage = this.botMessages[botIndex];
-      console.log(botMessage);
-    }
+      const d = new Date();
+      const newMessage = {
+        date: d,
+        textMessage: botMessage,
+        status: 'received'
+      }
+      this.contacts[this.counterIndex].messages.push(newMessage);
+      this.doScroll = true;
+    },
 
+    botAnswerDelayed() {
+      setTimeout(() => {
+        this.botAnswer();
+      }, 1000)
+    }
   },
+  
   updated() {
     this.scrollEndMessage();
   },
