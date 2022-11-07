@@ -9,8 +9,8 @@ body {
   background: linear-gradient(
     to bottom,
     #009688 0%,
-    #009688 10%,
-    #dddbd1 10%,
+    #009688 15%,
+    #dddbd1 15%,
     #d3dbdb 100%
   );
 }
@@ -32,6 +32,8 @@ body {
 .contacts-bar {
   height: 100%;
   width: 35%;
+  padding-bottom: 20px;
+  background-color: white;
 }
 
 .chat-bar {
@@ -58,11 +60,11 @@ body {
 }
 
 .icon {
+  color: #b1b1b1;
   cursor: pointer;
 }
 
 .recipient-user-bar .icon {
-  color: #b1b1b1;
   font-size: 1.3rem;
   margin-right: 15px;
 }
@@ -110,27 +112,80 @@ img.avatar {
   color: #8edafc;
 }
 
-.search-area {
-  width: 100%;
-  height: 45px;
-  background-color: #fafafa;
+.call {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.contacts-list {
-  width: 100%;
-  height: calc(100% - 195px);
-  background-color: #ffffff;
-  overflow: auto;
-}
-
-.last.access,
+.last,
 .call {
   color: gray;
 }
 
-.call {
-  text-decoration: underline;
+.search-area {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #fafafa;
+  line-height: 50px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.search-area input {
+  width: 100%;
+  height: 35px;
+  text-indent: 60px;
+  border: none;
+}
+
+.icon.search {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.contacts-area {
+  width: 100%;
+  height: calc(100% - 200px);
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.list {
+  list-style: none;
+}
+
+.list-item {
+  padding: 10px 20px;
+  border-top: 1px solid #dadbd3;
+  border-bottom: 1px solid #dadbd3;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item img.avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.list-item .info {
+  align-items: flex-start;
+}
+
+.list-item .name {
+ font-size: 1.1rem;
+}
+
+.last.time-message, 
+.last.message {
+  font-size: 0.8rem;
+}
+
+.list-item.active {
+  background-color: #e9ebeb;
 }
 
 .chat-area {
