@@ -90,6 +90,10 @@ img.avatar {
   font-size: 1rem;
 }
 
+.last.access {
+  font-size: 0.9rem;
+}
+
 .desktop-alert {
   display: flex;
   align-items: center;
@@ -221,6 +225,15 @@ img.avatar {
   content: "";
   clear: both;
   display: table;
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon.chevron {
+  margin-left: 10px;
 }
 
 .time-msg {
