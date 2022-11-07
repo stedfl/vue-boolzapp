@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Boolzapp</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="contacts-bar">
+          <div class="recipient-user-bar user">
+            <div class="user info">
+              <img
+                class="avatar"
+                :src="'img/avatar' + user.avatar + '.jpg'"
+                :alt="user.name"
+              />
+              <div class="sender description">
+                <h2 class="sender name">Sofia</h2>
+              </div>
+            </div>
+            <div class="menu-icons">
+              <i class="fa-solid fa-circle-notch icon"></i>
+              <i class="fa-solid fa-message icon"></i>
+              <i class="fa-solid fa-ellipsis-vertical icon"></i>
+            </div>
+          </div>
+          <div class="desktop-alert">
+            <span class="bell-circle">
+              <i class="fa-solid fa-bell-slash icon"></i>
+            </span>
+            <div class="desktop description">
+              <h2>Ricevi notifiche di nuovi messaggi</h2>
+              <p class="call">Attiva notifiche desktop</p>
+            </div>
+          </div>
+
+          <div class="search-area">
+            <i class="fa-solid fa-magnifying-glass icon search"></i>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Cerca o inizia una nuova chat"
+            />
+          </div>
+          <div class="contacts-area">
+            <ul class="list">
+              <li
+                v-for="(contact, index) in contacts"
+                :class="{'active' : counterIndex===index}"
+                class="list-item"
+                @click="counterIndex=index, doScroll=true"
+              >
+                <div class="recipient info">
+                  <img
+                    class="avatar"
+                    :src="'img/avatar' + contact.avatar +'.jpg'"
+                    :alt="contact.name"
+                  />
+                  <div class="recipient description">
+                    <h2 class="recipient name">{{contact.name}}</h2>
+                    <p class="last message">Ultimo messaggio inviato</p>
+                  </div>
+                </div>
+                <p class="last time-message">12:00</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="chat-bar">
+          <div class="recipient-user-bar recipient">
+            <div class="recipient info">
+              <img
+                class="avatar"
+                :src="'img/avatar' + contacts[counterIndex].avatar + '.jpg'"
+                alt="contacts[counterIndex].name"
+              />
+              <div class="recipient description">
+                <h2 class="recipient name">{{contacts[counterIndex].name}}</h2>
+                <p class="last access">
+                  Ultimo accesso {{contacts[counterIndex].lastAccess}}
+                </p>
+              </div>
+            </div>
+            <div class="menu-icons">
+              <i class="fa-solid fa-magnifying-glass icon"></i>
+              <i class="fa-solid fa-paperclip icon"></i>
+              <i class="fa-solid fa-ellipsis-vertical icon"></i>
+            </div>
+          </div>
+
+          <div class="chat-area">
+            <div
+              v-for="(message, msgIndex) in contacts[counterIndex].messages"
+              :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
+              class="message clearfix"
+            >
+              <div
+                @mouseenter="showChevron = msgIndex"
+                @mouseleave="showChevron = null"
+                :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
+                class="container-msg"
+              >
+                <div class="text-container">
+                  <span class="text-msg">{{message.textMessage}}</span>
+                  <i
+                    v-show="showChevron===msgIndex"
+                    class="fa-solid fa-chevron-down icon chevron"
+                  ></i>
+                </div>
+                <span class="time-msg">{{message.date}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="typing-area">
+            <i class="fa-regular fa-face-smile icon"></i>
+            <input
+              @keyup.enter="addMessage(), doScroll=true"
+              v-model="inputMessage"
+              type="text"
+              class="type-input"
+              placeholder="Scrivi un messaggio"
+            />
+            <i class="fa-solid fa-microphone icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
