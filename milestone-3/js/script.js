@@ -329,29 +329,26 @@ createApp({
       }
     },
 
-    addMessage() {
+    addMessage(text, status) {
       const d = new Date();
       const newMessage = {
         date: d,
-        textMessage: this.inputMessage,
-        status: 'sent'
+        textMessage: text,
+        status: status
       }
       this.contacts[this.counterIndex].messages.push(newMessage);
-      this.inputMessage = "";
       this.doScroll = true;
+    },
+
+    userMessage() {
+      this.addMessage(this.inputMessage, 'sent');
+      this.inputMessage = "";
     },
 
     botAnswer() {
       const botIndex = Math.floor(Math.random() * (this.botMessages.length - 1));
       const botMessage = this.botMessages[botIndex];
-      const d = new Date();
-      const newMessage = {
-        date: d,
-        textMessage: botMessage,
-        status: 'received'
-      }
-      this.contacts[this.counterIndex].messages.push(newMessage);
-      this.doScroll = true;
+      this.addMessage(botMessage, 'received');
     },
 
     botAnswerDelayed() {
