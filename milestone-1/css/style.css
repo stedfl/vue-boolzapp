@@ -196,13 +196,13 @@ img.avatar {
   padding: 50px 70px;
 }
 
-.chat-area .message {
-  width: 100%;
+.message.clearfix {
+  margin-top: 10px;
 }
 
 .container-msg {
-  min-width: 200px;
-  max-width: 40%;
+  min-width: 250px;
+  max-width: 60%;
   padding: 10px 15px;
   border-radius: 10px;
 }
