@@ -83,7 +83,7 @@
               <img class="avatar" :src="'img/avatar' + contacts[counterIndex].avatar + '.jpg'" alt="contacts[counterIndex].name" />
               <div class="recipient description">
                 <h2 class="recipient name">{{contacts[counterIndex].name}}</h2>
-                <p class="last access">Ultimo accesso oggi alle 12:00</p>
+                <p class="last access">Ultimo accesso {{contacts[counterIndex].lastAccess}}</p>
               </div>
             </div>
             <div class="menu-icons">
