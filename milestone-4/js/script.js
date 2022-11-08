@@ -5,15 +5,19 @@ createApp({
     return {
       counterIndex: 0,
       showChevron: null,
+      showChevronMenu: null,
+      isChevronClicked : false,
       doScroll: true,
-      inputMessage: "",
+      inputMessage: '',
+      keyString: '',
+      result: [],
       user: {
         name: 'Sofia',
         avatar: '_io'
       },
       contacts: [
         {
-          name: 'Michele',
+          name: 'Marco',
           avatar: '_1',
           visible: false,
           lastAccess: '07/11/2022 15:30:55',
@@ -390,9 +394,26 @@ createApp({
       setTimeout(() => {
         this.botAnswer();
       }, 1000)
+    },
+
+    // handlerKeyUp() {
+    //   console.log(this.keyString);
+    //   const lowerKeyString = this.keyString.toLowerCase();
+    //   console.log(lowerKeyString);
+    //   this.result = this.contacts.filter((contact) => {
+    //     return contact.name.toLowerCase().includes(lowerKeyString);
+    //   })
+    //   console.log(this.result);
+    // },
+
+    doChevronMenu(index) {
+      if (this.showChevronMenu === index) {
+        this.showChevronMenu = null;
+      } else {
+        this.showChevronMenu = index;
+      }
     }
-  },
-  
+  },  
   updated() {
     this.scrollEndMessage();
   },

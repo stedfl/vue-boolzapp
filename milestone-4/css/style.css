@@ -1,0 +1,294 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #009688 0%,
+    #009688 15%,
+    #dddbd1 15%,
+    #d3dbdb 100%
+  );
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin: 0 auto;
+  height: calc(100vh - 60px);
+  width: 75%;
+  display: flex;
+}
+
+.contacts-bar {
+  height: 100%;
+  width: 35%;
+  padding-bottom: 20px;
+  background-color: white;
+}
+
+.chat-bar {
+  height: 100%;
+  width: 65%;
+}
+
+.recipient-user-bar,
+.typing-area {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.recipient-user-bar {
+  background-color: #eaeaea;
+}
+
+.recipient-user-bar.recipient,
+.typing-area {
+  border-left: 1px solid #dadbd3;
+}
+
+.icon {
+  color: #b1b1b1;
+  cursor: pointer;
+}
+
+.recipient-user-bar .icon {
+  font-size: 1.3rem;
+  margin-right: 15px;
+}
+
+img.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.description,
+.bell-circle {
+  margin-left: 15px;
+}
+
+.info .name,
+.desktop h2 {
+  font-size: 1rem;
+}
+
+.last.access {
+  font-size: 0.9rem;
+}
+
+.desktop-alert {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: #8edafc;
+}
+
+.bell-circle {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 45px;
+}
+
+.bell-circle .icon {
+  color: #8edafc;
+}
+
+.call {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.last,
+.call {
+  color: gray;
+}
+
+.search-area {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #fafafa;
+  line-height: 50px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.search-area input {
+  width: 100%;
+  height: 35px;
+  text-indent: 60px;
+  border: none;
+}
+
+.icon.search {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.contacts-area {
+  width: 100%;
+  height: calc(100% - 200px);
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.list {
+  list-style: none;
+}
+
+.list-item {
+  padding: 10px 20px;
+  border-top: 1px solid #dadbd3;
+  border-bottom: 1px solid #dadbd3;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item img.avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.list-item .info {
+  align-items: flex-start;
+}
+
+.list-item .name {
+ font-size: 1.1rem;
+}
+
+.last.time-message, 
+.last.message {
+  font-size: 0.8rem;
+}
+
+.list-item.active {
+  background-color: #e9ebeb;
+}
+
+.chat-area {
+  width: 100%;
+  height: calc(100% - 140px);
+  overflow: auto;
+  background-image: url(../img/mine.jpg);
+  padding: 50px 70px;
+}
+
+.message.clearfix {
+  margin-top: 10px;
+}
+
+.container-msg {
+  min-width: 250px;
+  max-width: 60%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.container-msg.recipient {
+  float: left;
+  background-color: #ffffff;
+}
+
+.container-msg.user {
+  float: right;
+  background-color: #d5f9ba;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon.chevron {
+  margin: 0 10px;
+  color: transparent;
+  position: relative;
+  right:0;
+}
+
+.icon.chevron.hover {
+  color: #b1b1b1;
+}
+
+.time-msg {
+  display: block;
+  text-align: end;
+  margin-top: 5px;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+.typing-area {
+  background-color: #f3eeea;
+  padding: 10px 0;
+}
+
+.type-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  text-indent: 15px;
+}
+
+.typing-area .icon {
+  font-size: 1.5rem;
+  color: #6b7376;
+  margin: 0 30px;
+}
+
+.chevron-menu ul {
+  background-color: white;
+  list-style: none;
+  position: absolute;
+  top: 1.8rem;
+  right: 1rem;
+  z-index: 999;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.50);
+}
+
+.chevron-menu ul li:last-child {
+  margin-top: 20px;
+}
+
+
