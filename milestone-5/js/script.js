@@ -357,7 +357,10 @@ createApp({
         'ok, perfetto',
         'non capisco cosa mi stai dicendo',
         'Certo. passo a prenderti quando vuoi',
-      ]
+      ],
+      isFinish: false,
+      allIndexExtracted: [],
+      botIndex: null
     }
   },
   methods: {
@@ -386,8 +389,9 @@ createApp({
     },
 
     botAnswer() {
-      const botIndex = Math.floor(Math.random() * (this.botMessages.length - 1));
-      const botMessage = this.botMessages[botIndex];
+      // const botIndex = Math.floor(Math.random() * (this.botMessages.length - 1));
+      this.extractBotIndex()
+      const botMessage = this.botMessages[this.botIndex];
       this.addMessage(botMessage, 'received');
     },
 
@@ -395,6 +399,34 @@ createApp({
       setTimeout(() => {
         this.botAnswer();
       }, 1000)
+    },
+
+    extractBotIndex() {
+      console.log('isFinish:' + this.isFinish);
+      if(this.isFinish) {
+        this.allIndexExtracted = [];
+      } else {
+        console.log('isFinish è falso');
+        let IndexExtracted = false;
+        if (this.allIndexExtracted.length < this.botMessages.length) {
+          console.log('è minore');
+          while(!IndexExtracted) {
+            let randomIndex = Math.floor(
+              Math.random() * (this.botMessages.length - 1));
+              if(!this.allIndexExtracted.includes(randomIndex)) {
+                this.allIndexExtracted.push(randomIndex)
+                IndexExtracted = true;
+                this.botIndex = randomIndex;
+                console.log(this.allIndexExtracted);
+              }
+          }
+          
+        } else {
+          console.log('isFinish è' + this.isFinish)
+          this.isFinish = true;
+        }
+      }
+  
     },
 
     handlerKeyUp() {
