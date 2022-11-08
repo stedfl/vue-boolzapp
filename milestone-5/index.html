@@ -61,30 +61,33 @@
           </div>
           <div class="contacts-area">
             <ul class="list">
-              <li
-                v-for="(contact, index) in contacts"
-                :class="{'active' : counterIndex===index}"
-                class="list-item"
-                @click="counterIndex=index, doScroll=true"
-              >
-                <div class="recipient info">
-                  <img
-                    class="avatar"
-                    :src="'img/avatar' + contact.avatar +'.jpg'"
-                    :alt="contact.name"
-                  />
-                  <div class="recipient description">
-                    <h2 class="recipient name">{{contact.name}}</h2>
-                    <p class="last message">
-                      {{contact.messages[contact.messages.length -
-                      1].textMessage}}
-                    </p>
+              <template  v-for="(contact, index) in contacts">
+                <li
+                  v-if="contact.visible===true"
+                  :class="{'active' : counterIndex===index}"
+                  class="list-item"
+                  @click="counterIndex=index, doScroll=true"
+                >
+                  <div class="recipient info">
+                    <img
+                      class="avatar"
+                      :src="'img/avatar' + contact.avatar +'.jpg'"
+                      :alt="contact.name"
+                    />
+                    <div class="recipient description">
+                      <h2 class="recipient name">{{contact.name}}</h2>
+                      <p class="last message">
+                        {{contact.messages[contact.messages.length -
+                        1].textMessage}}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <p class="last time-message">
-                  {{contact.messages[contact.messages.length - 1].date}}
-                </p>
-              </li>
+                  <p class="last time-message">
+                    {{contact.messages[contact.messages.length - 1].date}}
+                  </p>
+                </li>
+              </template>
+              
             </ul>
           </div>
         </div>

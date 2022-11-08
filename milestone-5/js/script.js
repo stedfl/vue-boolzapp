@@ -18,7 +18,7 @@ createApp({
         {
           name: 'Marco',
           avatar: '_1',
-          visible: false,
+          visible: true,
           lastAccess: '07/11/2022 15:30:55',
           messages: [
             {
@@ -91,7 +91,7 @@ createApp({
         {
           name: 'Lorenzo',
           avatar: '_2',
-          visible: false,
+          visible: true,
           lastAccess: '07/11/2022 11:25:55',
           messages: [
             {
@@ -124,7 +124,7 @@ createApp({
         {
           name: 'Claudio',
           avatar: '_3',
-          visible: false,
+          visible: true,
           lastAccess: '07/11/2022 13:44:55', 
           messages: [
             {
@@ -167,7 +167,7 @@ createApp({
         {
           name: 'Andrea',
           avatar: '_4',
-          visible: false,
+          visible: true,
           lastAccess: '07/11/2022 17:24:23',
           messages: [
             {
@@ -200,7 +200,7 @@ createApp({
         {
           name: 'Papà',
           avatar: '_5',
-          visible: false,
+          visible: true,
           lastAccess: '04/11/2022 16:25:16',
           messages: [
             {
@@ -233,7 +233,7 @@ createApp({
         {
           name: 'Alessia M. collega',
           avatar: '_6',
-          visible: false,
+          visible: true,
           lastAccess: '05/11/2022 19:12:56',
           messages: [
             {
@@ -296,7 +296,7 @@ createApp({
         {
           name: 'Manaresi proprietario',
           avatar: '_7',
-          visible: false,
+          visible: true,
           lastAccess: '04/11/2022 16:25:16',
           messages: [
             {
@@ -319,7 +319,7 @@ createApp({
         {
           name: 'Aiutogas',
           avatar: '_8',
-          visible: false,
+          visible: true,
           lastAccess: '06/11/2022 17:30:16',
           messages: [
             {
@@ -332,7 +332,7 @@ createApp({
         {
           name: 'Giorgia Mancini Infermiera',
           avatar: '_6',
-          visible: false,
+          visible: true,
           lastAccess: '07/11/2022 16:58:46',
           messages: [
             {
@@ -404,6 +404,27 @@ createApp({
     //   })
     //   console.log(this.result);
     // },
+
+    handlerKeyUp() {
+      for (contact of this.contacts) {
+        contact.visible = true;
+        }
+      console.log(this.keyString);
+      const lowerKeyString = this.keyString.toLowerCase();
+      console.log(lowerKeyString);
+      if (lowerKeyString === '') {
+        for (contact of this.contacts) {
+          contact.visible = true;
+          }
+      } else {
+        for (contact of this.contacts) {
+        if (!contact.name.includes(lowerKeyString)) {
+          contact.visible = false;
+        }
+        }
+      }
+    },
+
 
     doChevronMenu(index) {
       if (this.showChevronMenu === index) {
