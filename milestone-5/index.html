@@ -27,8 +27,10 @@
   <body>
     <div id="app">
       <div class="container">
+        <!-- CONTACTS - BAR -->
         <div class="contacts-bar">
           <div class="recipient-user-bar user">
+            <!-- USER ACCOUNT -->
             <div class="user info">
               <img
                 class="avatar"
@@ -39,6 +41,8 @@
                 <h2 class="sender name">Sofia</h2>
               </div>
             </div>
+            <!-- /USER ACCOUNT -->
+
             <div class="menu-icons">
               <i class="fa-solid fa-circle-notch icon"></i>
               <i class="fa-solid fa-message icon"></i>
@@ -55,6 +59,7 @@
             </div>
           </div>
 
+          <!-- SEARCH-BAR TO FILTER CONTACTS -->
           <div class="search-area">
             <i class="fa-solid fa-magnifying-glass icon search"></i>
             <input
@@ -65,8 +70,11 @@
               placeholder="Cerca o inizia una nuova chat"
             />
           </div>
+          <!-- /SEARCH-BAR TO FILTER CONTACTS -->
+
           <div class="contacts-area">
             <ul class="list">
+              <!-- CONTACTS LIST -->
               <template v-for="(contact, index) in contacts">
                 <li
                   v-if="contact.visible===true"
@@ -93,10 +101,16 @@
                   </p>
                 </li>
               </template>
+              <!-- /CONTACTS LIST -->
             </ul>
           </div>
         </div>
+        <!-- /CONTACTS - BAR -->
+
+        <!-- CHAT SECTION -->
         <div class="chat-bar">
+
+          <!-- ACTIVE CHAT: CONTACT -->
           <div class="recipient-user-bar recipient">
             <div class="recipient info">
               <img
@@ -117,8 +131,10 @@
               <i class="fa-solid fa-ellipsis-vertical icon"></i>
             </div>
           </div>
+          <!-- /ACTIVE CHAT: CONTACT -->
 
           <div class="chat-area">
+            <!-- ACTIVE CHAT: MESSAGES -->
             <div
               v-for="(message, msgIndex) in contacts[counterIndex].messages"
               :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
@@ -155,7 +171,10 @@
                 <span class="time-msg">{{message.date}}</span>
               </div>
             </div>
+            <!-- /ACTIVE CHAT: MESSAGES -->
           </div>
+
+          <!-- TYPING SECTION -->
           <div class="typing-area">
             <i class="fa-regular fa-face-smile icon"></i>
             <input
@@ -167,7 +186,9 @@
             />
             <i class="fa-solid fa-microphone icon"></i>
           </div>
+          <!-- /TYPING SECTION -->
         </div>
+        <!-- /CHAT SECTION -->
       </div>
     </div>
 

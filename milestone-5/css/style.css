@@ -19,6 +19,7 @@ body {
   );
 }
 
+/* GENERAL */
 #app {
   width: 100%;
   height: 100vh;
@@ -33,6 +34,19 @@ body {
   display: flex;
 }
 
+img.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+.icon {
+  color: #b1b1b1;
+  cursor: pointer;
+}
+
+
+/* CONTACTS BAR E CHAT BAR*/
 .contacts-bar {
   height: 100%;
   width: 35%;
@@ -40,9 +54,11 @@ body {
   background-color: white;
 }
 
-.chat-bar {
-  height: 100%;
-  width: 65%;
+.contacts-area {
+  width: 100%;
+  height: calc(100% - 200px);
+  background-color: #ffffff;
+  overflow: auto;
 }
 
 .recipient-user-bar,
@@ -63,20 +79,9 @@ body {
   border-left: 1px solid #dadbd3;
 }
 
-.icon {
-  color: #b1b1b1;
-  cursor: pointer;
-}
-
 .recipient-user-bar .icon {
   font-size: 1.3rem;
   margin-right: 15px;
-}
-
-img.avatar {
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
 }
 
 .info {
@@ -98,6 +103,7 @@ img.avatar {
   font-size: 0.9rem;
 }
 
+/* DESKTOP ALERT */
 .desktop-alert {
   display: flex;
   align-items: center;
@@ -130,6 +136,7 @@ img.avatar {
   color: gray;
 }
 
+/* SEARCH BAR TO FILTER CONTACTS */
 .search-area {
   position: relative;
   width: 100%;
@@ -154,13 +161,7 @@ img.avatar {
   transform: translateY(-50%);
 }
 
-.contacts-area {
-  width: 100%;
-  height: calc(100% - 200px);
-  background-color: #ffffff;
-  overflow: auto;
-}
-
+/* CONTACT LIST*/
 .list {
   list-style: none;
 }
@@ -196,6 +197,12 @@ img.avatar {
   background-color: #e9ebeb;
 }
 
+/* CHAT SECTION */
+.chat-bar {
+  height: 100%;
+  width: 65%;
+}
+
 .chat-area {
   width: 100%;
   height: calc(100% - 140px);
@@ -204,6 +211,7 @@ img.avatar {
   padding: 50px 70px;
 }
 
+/* ACTIVE CHAT: MESSAGES */
 .message.clearfix {
   margin-top: 10px;
 }
@@ -237,6 +245,15 @@ img.avatar {
   justify-content: space-between;
 }
 
+.time-msg {
+  display: block;
+  text-align: end;
+  margin-top: 5px;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+/* CHEVRON MENU */
 .icon.chevron {
   margin: 0 10px;
   color: transparent;
@@ -246,33 +263,6 @@ img.avatar {
 
 .icon.chevron.hover {
   color: #b1b1b1;
-}
-
-.time-msg {
-  display: block;
-  text-align: end;
-  margin-top: 5px;
-  color: gray;
-  font-size: 0.7rem;
-}
-
-.typing-area {
-  background-color: #f3eeea;
-  padding: 10px 0;
-}
-
-.type-input {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  border: none;
-  text-indent: 15px;
-}
-
-.typing-area .icon {
-  font-size: 1.5rem;
-  color: #6b7376;
-  margin: 0 30px;
 }
 
 .chevron-menu ul {
@@ -293,4 +283,24 @@ img.avatar {
 
 .chevron-menu li {
   cursor: pointer;
+}
+
+/* TYPING SECTION */
+.typing-area {
+  background-color: #f3eeea;
+  padding: 10px 0;
+}
+
+.type-input {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  text-indent: 15px;
+}
+
+.typing-area .icon {
+  font-size: 1.5rem;
+  color: #6b7376;
+  margin: 0 30px;
 }
