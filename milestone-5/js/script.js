@@ -6,7 +6,6 @@ createApp({
       counterIndex: 0,
       showChevron: null,
       showChevronMenu: null,
-      isChevronClicked : false,
       doScroll: true,
       inputMessage: '',
       keyString: '',
@@ -417,10 +416,11 @@ createApp({
     deleteMessage(msgIndex, counterIndex) {
       if (this.contacts[counterIndex].messages.length === 1) {
         this.contacts[counterIndex].messages[msgIndex] = {};
-        this.showChevronMenu = null;
       } else {
         this.contacts[counterIndex].messages.splice(msgIndex, 1);
       }  
+      this.showChevronMenu = null;
+      this.showChevron = null;
     }
   },  
   updated() {
