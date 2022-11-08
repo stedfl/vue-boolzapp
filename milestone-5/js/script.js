@@ -165,7 +165,7 @@ createApp({
           ]
         },
         {
-          name: 'Andrea',
+          name: 'Claudio',
           avatar: '_4',
           visible: true,
           lastAccess: '07/11/2022 17:24:23',
@@ -330,7 +330,7 @@ createApp({
           ]
         },
         {
-          name: 'Giorgia Mancini Infermiera',
+          name: 'Marta Mancini Infermiera',
           avatar: '_6',
           visible: true,
           lastAccess: '07/11/2022 16:58:46',
@@ -395,36 +395,23 @@ createApp({
       }, 1000)
     },
 
-    // handlerKeyUp() {
-    //   console.log(this.keyString);
-    //   const lowerKeyString = this.keyString.toLowerCase();
-    //   console.log(lowerKeyString);
-    //   this.result = this.contacts.filter((contact) => {
-    //     return contact.name.toLowerCase().includes(lowerKeyString);
-    //   })
-    //   console.log(this.result);
-    // },
-
     handlerKeyUp() {
       for (contact of this.contacts) {
         contact.visible = true;
         }
-      console.log(this.keyString);
-      const lowerKeyString = this.keyString.toLowerCase();
-      console.log(lowerKeyString);
+      const lowerKeyString = this.keyString.toLowerCase().trim();
       if (lowerKeyString === '') {
         for (contact of this.contacts) {
           contact.visible = true;
           }
       } else {
         for (contact of this.contacts) {
-        if (!contact.name.includes(lowerKeyString)) {
+        if (!contact.name.toLowerCase().includes(lowerKeyString)) {
           contact.visible = false;
         }
         }
       }
     },
-
 
     doChevronMenu(index) {
       if (this.showChevronMenu === index) {

@@ -61,7 +61,7 @@
           </div>
           <div class="contacts-area">
             <ul class="list">
-              <template  v-for="(contact, index) in contacts">
+              <template v-for="(contact, index) in contacts">
                 <li
                   v-if="contact.visible===true"
                   :class="{'active' : counterIndex===index}"
