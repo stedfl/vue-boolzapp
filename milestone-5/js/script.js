@@ -9,7 +9,6 @@ createApp({
       doScroll: true,
       inputMessage: '',
       keyString: '',
-      result: [],
       user: {
         name: 'Sofia',
         avatar: '_io'
@@ -354,7 +353,10 @@ createApp({
         'Purtroppo devo salutarti, devo scappare',
         'Ti va di andare al cinema?',
         'Come stai?',
-        'E\'\ tanto tempo che non ci vediamo'
+        'E\'\ tanto tempo che non ci vediamo',
+        'ok, perfetto',
+        'non capisco cosa mi stai dicendo',
+        'Certo. passo a prenderti quando vuoi',
       ]
     }
   },

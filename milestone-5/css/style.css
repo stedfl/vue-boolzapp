@@ -9,13 +9,13 @@ html {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   background: linear-gradient(
     to bottom,
     #009688 0%,
-    #009688 15%,
-    #dddbd1 15%,
-    #d3dbdb 100%
+    #009688 15vh,
+    #dddbd1 15vh,
+    #d3dbdb 100vh
   );
 }
 
@@ -184,10 +184,10 @@ img.avatar {
 }
 
 .list-item .name {
- font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
-.last.time-message, 
+.last.time-message,
 .last.message {
   font-size: 0.8rem;
 }
@@ -241,7 +241,7 @@ img.avatar {
   margin: 0 10px;
   color: transparent;
   position: relative;
-  right:0;
+  right: 0;
 }
 
 .icon.chevron.hover {
@@ -284,7 +284,7 @@ img.avatar {
   z-index: 999;
   padding: 15px 25px;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,.50);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .chevron-menu ul li:last-child {
@@ -294,5 +294,3 @@ img.avatar {
 .chevron-menu li {
   cursor: pointer;
 }
-
-
