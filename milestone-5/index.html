@@ -121,8 +121,11 @@
               />
               <div class="recipient description">
                 <h2 class="recipient name">{{contacts[counterIndex].name}}</h2>
-                <p class="last access">
-                  Ultimo accesso {{contacts[counterIndex].lastAccess}}
+                <p v-if="contacts[counterIndex].lastAccess.slice(0, 8) === nowFormatted" class="last access">
+                  Ultimo accesso oggi alle {{contacts[counterIndex].lastAccess.slice(9, 14)}}
+                </p>
+                <p v-else class="last access">
+                  Ultimo accesso il {{contacts[counterIndex].lastAccess}}
                 </p>
               </div>
             </div>

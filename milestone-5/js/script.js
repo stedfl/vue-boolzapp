@@ -422,6 +422,7 @@ createApp({
       this.extractBotIndex();
       const botMessage = this.botMessages[this.botIndex];
       this.addMessage(botMessage, "received");
+      this.contacts[this.counterIndex].lastAccess = this.formattingDate(now);
     },
 
     botAnswerDelayed() {
