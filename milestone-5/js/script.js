@@ -352,13 +352,15 @@ createApp({
         'Che fai di bello questo weekend?',
         'Purtroppo devo salutarti, devo scappare',
         'Ti va di andare al cinema?',
-        'Come stai?',
+        'Tutto bene?',
         'E\'\ tanto tempo che non ci vediamo',
         'ok, perfetto',
         'non capisco cosa mi stai dicendo',
         'Certo. passo a prenderti quando vuoi',
+        'Oggi piove, non credo di uscire',
+        'Scusa se non ti ho risposto prima ma stavo cucinando',
+        'ci sentiamo più tardi'
       ],
-      isFinish: false,
       allIndexExtracted: [],
       botIndex: null
     }
@@ -389,8 +391,7 @@ createApp({
     },
 
     botAnswer() {
-      // const botIndex = Math.floor(Math.random() * (this.botMessages.length - 1));
-      this.extractBotIndex()
+      this.extractBotIndex();
       const botMessage = this.botMessages[this.botIndex];
       this.addMessage(botMessage, 'received');
     },
@@ -402,30 +403,23 @@ createApp({
     },
 
     extractBotIndex() {
-      console.log('isFinish:' + this.isFinish);
-      if(this.isFinish) {
+      if (this.allIndexExtracted.length === this.botMessages.length) {
         this.allIndexExtracted = [];
-      } else {
-        console.log('isFinish è falso');
-        let IndexExtracted = false;
-        if (this.allIndexExtracted.length < this.botMessages.length) {
-          console.log('è minore');
-          while(!IndexExtracted) {
-            let randomIndex = Math.floor(
-              Math.random() * (this.botMessages.length - 1));
-              if(!this.allIndexExtracted.includes(randomIndex)) {
-                this.allIndexExtracted.push(randomIndex)
-                IndexExtracted = true;
-                this.botIndex = randomIndex;
-                console.log(this.allIndexExtracted);
-              }
+      } 
+      
+      let IndexExtracted = false;
+      if (this.allIndexExtracted.length < this.botMessages.length) {
+        while (!IndexExtracted) {
+          let randomIndex = Math.floor(
+            Math.random() * this.botMessages.length
+          );
+          if (!this.allIndexExtracted.includes(randomIndex)) {
+            this.allIndexExtracted.push(randomIndex);
+            IndexExtracted = true;
+            this.botIndex = randomIndex;
           }
-          
-        } else {
-          console.log('isFinish è' + this.isFinish)
-          this.isFinish = true;
         }
-      }
+    }
   
     },
 
