@@ -484,6 +484,7 @@ createApp({
     deleteMessage(msgIndex, activeIndex) {
       if (this.contacts[activeIndex].messages.length === 1) {
         this.contacts[activeIndex].messages[msgIndex] = {};
+        console.log("sono qui")
       } else {
         this.contacts[activeIndex].messages.splice(msgIndex, 1);
       }
@@ -499,6 +500,11 @@ createApp({
       }
       this.showChevronMenu = null;
       this.showChevron = null;
+    },
+
+    deleteAllChat() {
+      console.log(this.contacts[0].messages);
+      this.contacts[0].messages = [];
     },
 
     formattingDate(date) {

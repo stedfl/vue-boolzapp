@@ -157,7 +157,7 @@
             </div>
             <ul v-show="isChatMenu" class="chat menu">
               <li>Info contatto</li>
-              <li>Elimina messaggi</li>
+              <li @click="deleteAllChat()"class="definitive">Elimina messaggi</li>
               <li>Elimina chat</li>
             </ul>
           </div>
