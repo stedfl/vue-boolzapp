@@ -8,6 +8,7 @@ createApp({
       counterIndex: 0,
       showChevron: null,
       showChevronMenu: null,
+      isInfoMenu: false,
       doScroll: true,
       inputMessage: "",
       keyString: "",

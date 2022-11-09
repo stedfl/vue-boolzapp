@@ -90,8 +90,13 @@
                     />
                     <div class="recipient description">
                       <h2 class="recipient name">{{contact.name}}</h2>
-                      <p v-if="contact.messages[contact.messages.length -
-                        1].textMessage === ''" class="last message delete">Messaggio eliminato</p>
+                      <p
+                        v-if="contact.messages[contact.messages.length -
+                        1].textMessage === ''"
+                        class="last message delete"
+                      >
+                        Messaggio eliminato
+                      </p>
                       <p v-else class="last message">
                         {{contact.messages[contact.messages.length -
                         1].textMessage}}
@@ -136,7 +141,8 @@
                   {{contacts[counterIndex].lastAccess.slice(9, 14)}}
                 </p>
                 <p v-else class="last access">
-                  Ultimo accesso il {{contacts[counterIndex].lastAccess}}
+                  Ultimo accesso il {{contacts[counterIndex].lastAccess.slice(0,
+                  8)}} alle {{contacts[counterIndex].lastAccess.slice(9, 14)}}
                 </p>
               </div>
             </div>
@@ -177,7 +183,23 @@
                     class="chevron-menu"
                   >
                     <ul>
-                      <li>Info messaggio</li>
+                      <li @mouseenter="isInfoMenu=true" @mouseleave="isInfoMenu=false">Info messaggio</li>
+                      <div v-show="isInfoMenu===true"class="info-box">
+                        <p
+                        v-if="contacts[counterIndex].messages[msgIndex].status==='received'"
+                        class="info-msg"
+                      >
+                        Inviato da {{contacts[counterIndex].name}}
+                        il {{contacts[counterIndex].messages[msgIndex].date}}
+                      </p>
+                      <p
+                      v-else
+                      class="info-msg"
+                    >
+                      Inviato a {{contacts[counterIndex].name}}
+                      il {{contacts[counterIndex].messages[msgIndex].date}}
+                    </p>
+                      </div>
                       <li
                         @click="deleteMessage(msgIndex, counterIndex)"
                         v-if="message.textMessage === ''"
@@ -195,7 +217,7 @@
                     </ul>
                   </div>
                 </div>
-                <span class="time-msg">{{message.date}}</span>
+                <span class="time-msg">{{message.date.slice(0, 14)}}</span>
               </div>
             </div>
             <!-- /ACTIVE CHAT: MESSAGES -->

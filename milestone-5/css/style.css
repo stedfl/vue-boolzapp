@@ -193,6 +193,10 @@ ul {
   font-size: 0.8rem;
 }
 
+.last.time-message {
+  margin-left: 10px;
+}
+
 .list-item.active {
   background-color: #e9ebeb;
 }
@@ -287,22 +291,32 @@ ul {
 
 .chevron-menu ul li:last-child {
   margin-top: 20px;
+  cursor: pointer;
 }
 
-.chevron-menu li {
-  cursor: pointer;
+.chevron-menu li:first-child {
+  cursor: help;
 }
 
 .chevron-menu li:hover {
   color: #31ade7;
 }
 
-.chevron-menu li:active {
+.chevron-menu li:last-child:active {
   color: #0083c0;
 }
 
 .chevron-menu .definitive:hover {
   color: red;
+}
+
+.info-msg {
+  background-color: white;
+  position: absolute;
+  bottom: calc(100% + 20px);
+  padding: 1rem;
+  box-shadow: 0px 0px 10px #31ade7;
+  font-size: 0.8rem;
 }
 
 /* TYPING SECTION */
