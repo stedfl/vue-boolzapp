@@ -96,7 +96,8 @@
                       </p>
                     </div>
                   </div>
-                  <p class="last time-message">
+                  <p v-if="contact.messages[contact.messages.length - 1].date.slice(0, 8) === nowFormatted" class="last time-message">Oggi</p>
+                  <p v-else class="last time-message">
                     {{contact.messages[contact.messages.length - 1].date.slice(0, 8)}}
                   </p>
                 </li>

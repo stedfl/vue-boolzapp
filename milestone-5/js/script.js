@@ -11,6 +11,7 @@ createApp({
       doScroll: true,
       inputMessage: "",
       keyString: "",
+      nowFormatted: "",
       user: {
         name: "Sofia",
         avatar: "_io",
@@ -487,11 +488,16 @@ createApp({
       const dateFormatted = date.setLocale('it').toFormat("dd'/'LL'/'yy tt").toLocaleString();
       return(dateFormatted);
     },
+
+    formattingToday() {
+      this.nowFormatted = now.setLocale('it').toFormat("dd'/'LL'/'yy").toLocaleString();
+    }
   },
   updated() {
     this.scrollEndMessage();
   },
   mounted() {
     this.scrollEndMessage();
+    this.formattingToday();
   },
 }).mount("#app");
