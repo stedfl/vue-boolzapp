@@ -257,6 +257,12 @@ ul {
   font-size: 0.7rem;
 }
 
+.delete,
+.delete .icon {
+  color: #6b7376;
+  font-style: italic;
+}
+
 /* CHEVRON MENU */
 .icon.chevron {
   width: 30px;
@@ -293,6 +299,10 @@ ul {
 
 .chevron-menu li:active {
   color: #0083c0;
+}
+
+.chevron-menu .definitive:hover {
+  color: red;
 }
 
 /* TYPING SECTION */

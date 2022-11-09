@@ -90,15 +90,23 @@
                     />
                     <div class="recipient description">
                       <h2 class="recipient name">{{contact.name}}</h2>
-                      <p class="last message">
+                      <p v-if="contact.messages[contact.messages.length -
+                        1].textMessage === ''" class="last message delete">Messaggio eliminato</p>
+                      <p v-else class="last message">
                         {{contact.messages[contact.messages.length -
                         1].textMessage}}
                       </p>
                     </div>
                   </div>
-                  <p v-if="contact.messages[contact.messages.length - 1].date.slice(0, 8) === nowFormatted" class="last time-message">Oggi</p>
+                  <p
+                    v-if="contact.messages[contact.messages.length - 1].date.slice(0, 8) === nowFormatted"
+                    class="last time-message"
+                  >
+                    Oggi
+                  </p>
                   <p v-else class="last time-message">
-                    {{contact.messages[contact.messages.length - 1].date.slice(0, 8)}}
+                    {{contact.messages[contact.messages.length -
+                    1].date.slice(0, 8)}}
                   </p>
                 </li>
               </template>
@@ -110,7 +118,6 @@
 
         <!-- CHAT SECTION -->
         <div class="chat-bar">
-
           <!-- ACTIVE CHAT: CONTACT -->
           <div class="recipient-user-bar recipient">
             <div class="recipient info">
@@ -121,8 +128,12 @@
               />
               <div class="recipient description">
                 <h2 class="recipient name">{{contacts[counterIndex].name}}</h2>
-                <p v-if="contacts[counterIndex].lastAccess.slice(0, 8) === nowFormatted" class="last access">
-                  Ultimo accesso oggi alle {{contacts[counterIndex].lastAccess.slice(9, 14)}}
+                <p
+                  v-if="contacts[counterIndex].lastAccess.slice(0, 8) === nowFormatted"
+                  class="last access"
+                >
+                  Ultimo accesso oggi alle
+                  {{contacts[counterIndex].lastAccess.slice(9, 14)}}
                 </p>
                 <p v-else class="last access">
                   Ultimo accesso il {{contacts[counterIndex].lastAccess}}
@@ -151,7 +162,11 @@
                 class="container-msg"
               >
                 <div class="text-container">
-                  <span class="text-msg">{{message.textMessage}}</span>
+                  <span v-if="message.textMessage === ''" class="delete">
+                    <i class="fa-solid fa-ban icon"></i>
+                    Hai eliminato questo messaggio
+                  </span>
+                  <span v-else class="text-msg">{{message.textMessage}}</span>
                   <i
                     @click="doChevronMenu(msgIndex)"
                     :class="{'hover' : showChevron===msgIndex}"
@@ -165,6 +180,14 @@
                       <li>Info messaggio</li>
                       <li
                         @click="deleteMessage(msgIndex, counterIndex)"
+                        v-if="message.textMessage === ''"
+                        class="delete-msg definitive"
+                      >
+                        Elimina definitivamente
+                      </li>
+                      <li
+                        @click="checkDeleteMessage(msgIndex, counterIndex)"
+                        v-else
                         class="delete-msg"
                       >
                         Cancella messaggio

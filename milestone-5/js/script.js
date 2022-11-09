@@ -485,6 +485,16 @@ createApp({
       this.showChevron = null;
     },
 
+    checkDeleteMessage(msgIndex, counterIndex) {
+      if(this.contacts[counterIndex].messages[msgIndex].status === 'sent') {
+        this.contacts[counterIndex].messages[msgIndex].textMessage = '';
+      } else {
+        this.deleteMessage(msgIndex, counterIndex);
+      }
+      this.showChevronMenu = null;
+      this.showChevron = null;
+    },
+
     formattingDate(date) {
       const dateFormatted = date.setLocale('it').toFormat("dd'/'LL'/'yy tt").toLocaleString();
       return(dateFormatted);
