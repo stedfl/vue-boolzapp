@@ -248,7 +248,7 @@ ul {
 }
 
 .chat.menu li:hover {
-  background-color:#f5f7f6
+  background-color: #f5f7f6;
 }
 
 .icon.ellipsis {
@@ -378,7 +378,7 @@ ul {
   margin: 0 30px;
 }
 
-/* BONUS */
+/* INFO CONTACT MENU */
 .info-contact-menu {
   width: 50%;
   background-color: white;
@@ -407,7 +407,7 @@ ul {
 }
 
 .info-contact-menu span {
-  padding:0 20px;
+  padding: 0 20px;
   font-size: 1.2rem;
   font-weight: normal;
 }
@@ -424,4 +424,9 @@ ul {
 .info-contact-menu h5 {
   font-size: 1rem;
   margin-bottom: 10px;
+}
+
+.icon.mark:hover,
+.icon.mark:active {
+  color: #6b7376;
 }

@@ -98,7 +98,6 @@ createApp({
               textMessage:
                 "va bene dai allora passo a prendere un pacco giusto per sta settimana",
               status: "sent",
-              
             },
           ],
         },
@@ -264,7 +263,7 @@ createApp({
           name: "Alessia M. collega",
           avatar: "_6",
           phoneNumber: "+39 3494723345",
-          profileStatus: "L\'\ eternità è il mare mischiato col sole.",
+          profileStatus: "L' eternità è il mare mischiato col sole.",
           visible: true,
           lastAccess: "05/11/22 19:12:56",
           messages: [
@@ -359,8 +358,8 @@ createApp({
           ],
         },
         {
-          name: "Aiutogas",
-          avatar: "_8",
+          name: "",
+          avatar: "_general",
           phoneNumber: "+39 3713899674",
           profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
@@ -369,7 +368,7 @@ createApp({
             {
               date: "05/11/22 08:00:00",
               textMessage:
-                "Buongiorno, Le ricordiamo l' appuntamento per la pulizia della caldaia e controllo fumi fissato per lunedì 14 Novembre nella fascia oraria 15-18. Per disdetta, non esiti a contattarci",
+                "Buongiorno, Aiutogas Le ricorda l' appuntamento per la pulizia della caldaia e controllo fumi fissato per lunedì 14 Novembre nella fascia oraria 15-18. Per disdetta, non esiti a ricontattarci su questo numero",
               status: "received",
             },
           ],
@@ -378,7 +377,8 @@ createApp({
           name: "Marta Mancini Infermiera",
           avatar: "_6",
           phoneNumber: "+39 3552132486",
-          profileStatus: "El mar es un tejado de botellas que en la memoria del marino sueña.",
+          profileStatus:
+            "El mar es un tejado de botellas que en la memoria del marino sueña.",
           visible: true,
           lastAccess: "07/11/22 16:58:46",
           messages: [
@@ -440,7 +440,6 @@ createApp({
         this.botAnswerDelayed();
       }
       this.inputMessage = "";
-      
     },
 
     botAnswer() {
@@ -503,7 +502,7 @@ createApp({
     deleteMessage(msgIndex, activeIndex) {
       if (this.contacts[activeIndex].messages.length === 1) {
         this.contacts[activeIndex].messages[msgIndex] = {};
-        console.log("sono qui")
+        console.log("sono qui");
       } else {
         this.contacts[activeIndex].messages.splice(msgIndex, 1);
       }
@@ -512,8 +511,8 @@ createApp({
     },
 
     checkDeleteMessage(msgIndex, activeIndex) {
-      if(this.contacts[activeIndex].messages[msgIndex].status === 'sent') {
-        this.contacts[activeIndex].messages[msgIndex].textMessage = '';
+      if (this.contacts[activeIndex].messages[msgIndex].status === "sent") {
+        this.contacts[activeIndex].messages[msgIndex].textMessage = "";
       } else {
         this.deleteMessage(msgIndex, activeIndex);
       }
@@ -527,14 +526,19 @@ createApp({
     },
 
     formattingDate(date) {
-      const dateFormatted = date.setLocale('it').toFormat("dd'/'LL'/'yy tt").toLocaleString();
-      return(dateFormatted);
+      const dateFormatted = date
+        .setLocale("it")
+        .toFormat("dd'/'LL'/'yy tt")
+        .toLocaleString();
+      return dateFormatted;
     },
 
     formattingToday() {
-      this.nowFormatted = now.setLocale('it').toFormat("dd'/'LL'/'yy").toLocaleString();
+      this.nowFormatted = now
+        .setLocale("it")
+        .toFormat("dd'/'LL'/'yy")
+        .toLocaleString();
     },
-
   },
   updated() {
     this.scrollEndMessage();

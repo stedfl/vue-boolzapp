@@ -26,6 +26,7 @@
   </head>
   <body>
     <div id="app">
+      
       <div class="container">
         <!-- CONTACTS - BAR -->
         <div class="contacts-bar">
@@ -89,7 +90,10 @@
                       :alt="contact.name"
                     />
                     <div class="recipient description">
-                      <h2 class="recipient name">{{contact.name}}</h2>
+                      <h2 v-if="contact.name===''" class="recipient name">
+                        {{contact.phoneNumber}}
+                      </h2>
+                      <h2 v-else class="recipient name">{{contact.name}}</h2>
                       <p
                         v-if="contact.messages[contact.messages.length -
                         1].textMessage === ''"
@@ -123,11 +127,13 @@
 
         <!-- CHAT SECTION -->
         <div class="chat-bar">
+
+          <!-- ACTIVE CHAT: CONTACT -->
           <div
             :class="[{'full' : !isContactMenu}, {'cut' : isContactMenu} ]"
             class="active-chat"
           >
-            <!-- ACTIVE CHAT: CONTACT -->
+            
             <div class="recipient-user-bar recipient">
               <div class="recipient info">
                 <img
@@ -136,7 +142,15 @@
                   alt="contacts[activeIndex].name"
                 />
                 <div class="recipient description">
-                  <h2 class="recipient name">{{contacts[activeIndex].name}}</h2>
+                  <h2
+                    v-if="contacts[activeIndex].name===''"
+                    class="recipient name"
+                  >
+                    {{contacts[activeIndex].phoneNumber}}
+                  </h2>
+                  <h2 v-else class="recipient name">
+                    {{contacts[activeIndex].name}}
+                  </h2>
                   <p
                     v-if="contacts[activeIndex].lastAccess.slice(0, 8) === nowFormatted"
                     class="last access"
@@ -167,7 +181,6 @@
                 <li @click="deleteAllChat()" class="definitive">
                   Elimina messaggi
                 </li>
-                <li>Elimina chat</li>
               </ul>
             </div>
             <!-- /ACTIVE CHAT: CONTACT -->
@@ -257,10 +270,12 @@
             </div>
             <!-- /TYPING SECTION -->
           </div>
+
+          <!-- INFO CONTACT MENU  -->
           <div v-show="isContactMenu" class="info-contact-menu">
             <div class="title-menu">
               <span @click="isContactMenu=!isContactMenu"
-                ><i class="fa-solid fa-x icon"></i
+                ><i class="fa-solid fa-x icon mark"></i
               ></span>
               <span>Info contatto</span>
             </div>
@@ -278,8 +293,9 @@
               <h3>"{{contacts[activeIndex].profileStatus}}"</h3>
             </div>
           </div>
-          <!-- /CHAT SECTION -->
+          <!-- /INFO CONTACT MENU  -->
         </div>
+        <!-- /CHAT SECTION -->
       </div>
     </div>
 
