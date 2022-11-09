@@ -26,7 +26,6 @@
   </head>
   <body>
     <div id="app">
-      
       <div class="container">
         <!-- CONTACTS - BAR -->
         <div class="contacts-bar">
@@ -95,11 +94,16 @@
                       </h2>
                       <h2 v-else class="recipient name">{{contact.name}}</h2>
                       <p
-                        v-if="contact.messages[contact.messages.length -
+                        v-if="!contact.messages.length"
+                        class="last message delete"
+                      ></p>
+                      <p
+                        v-else-if="contact.messages[contact.messages.length -
                         1].textMessage === ''"
                         class="last message delete"
                       >
-                        Messaggio eliminato
+                        <i class="fa-solid fa-ban icon"></i>
+                        Hai eliminato questo messaggio
                       </p>
                       <p v-else class="last message">
                         {{contact.messages[contact.messages.length -
@@ -108,7 +112,11 @@
                     </div>
                   </div>
                   <p
-                    v-if="contact.messages[contact.messages.length - 1].date.slice(0, 8) === nowFormatted"
+                    v-if="!contact.messages.length"
+                    class="last time-message"
+                  ></p>
+                  <p
+                    v-else-if="contact.messages[contact.messages.length - 1].date.slice(0, 8) === nowFormatted"
                     class="last time-message"
                   >
                     Oggi
@@ -127,13 +135,11 @@
 
         <!-- CHAT SECTION -->
         <div class="chat-bar">
-
           <!-- ACTIVE CHAT: CONTACT -->
           <div
             :class="[{'full' : !isContactMenu}, {'cut' : isContactMenu} ]"
             class="active-chat"
           >
-            
             <div class="recipient-user-bar recipient">
               <div class="recipient info">
                 <img
@@ -179,7 +185,7 @@
                   Info contatto
                 </li>
                 <li @click="deleteAllChat()" class="definitive">
-                  Elimina messaggi
+                  Elimina tutti i messaggi
                 </li>
               </ul>
             </div>
@@ -234,14 +240,14 @@
                           </p>
                         </div>
                         <li
-                          @click="deleteMessage(msgIndex, activeIndex)"
+                          @click="deleteMessage(msgIndex)"
                           v-if="message.textMessage === ''"
                           class="delete-msg definitive"
                         >
                           Elimina definitivamente
                         </li>
                         <li
-                          @click="checkDeleteMessage(msgIndex, activeIndex)"
+                          @click="checkDeleteMessage(msgIndex)"
                           v-else
                           class="delete-msg"
                         >

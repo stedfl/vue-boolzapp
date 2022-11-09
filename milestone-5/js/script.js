@@ -419,7 +419,9 @@ createApp({
     scrollEndMessage() {
       if (this.doScroll) {
         const lastMessage = document.querySelector(".chat-area > :last-child");
-        lastMessage.scrollIntoView();
+        if (lastMessage) {
+          lastMessage.scrollIntoView();
+        }
         this.doScroll = false;
       }
     },
@@ -499,30 +501,30 @@ createApp({
       }
     },
 
-    deleteMessage(msgIndex, activeIndex) {
-      if (this.contacts[activeIndex].messages.length === 1) {
-        this.contacts[activeIndex].messages[msgIndex] = {};
-        console.log("sono qui");
-      } else {
-        this.contacts[activeIndex].messages.splice(msgIndex, 1);
-      }
+    deleteMessage(msgIndex) {
+      this.contacts[this.activeIndex].messages.splice(msgIndex, 1);
       this.showChevronMenu = null;
       this.showChevron = null;
     },
 
-    checkDeleteMessage(msgIndex, activeIndex) {
-      if (this.contacts[activeIndex].messages[msgIndex].status === "sent") {
-        this.contacts[activeIndex].messages[msgIndex].textMessage = "";
+    checkDeleteMessage(msgIndex) {
+      if (
+        this.contacts[this.activeIndex].messages[msgIndex].status === "sent"
+      ) {
+        this.contacts[this.activeIndex].messages[msgIndex].textMessage = "";
       } else {
-        this.deleteMessage(msgIndex, activeIndex);
+        this.deleteMessage(msgIndex);
       }
       this.showChevronMenu = null;
       this.showChevron = null;
     },
 
     deleteAllChat() {
-      console.log(this.contacts[0].messages);
-      this.contacts[0].messages = [];
+      this.contacts[this.activeIndex].messages.splice(
+        0,
+        this.contacts[this.activeIndex].messages.length
+      );
+      this.isChatMenu = false;
     },
 
     formattingDate(date) {
