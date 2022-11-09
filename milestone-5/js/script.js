@@ -414,8 +414,12 @@ createApp({
     },
 
     userMessage() {
-      this.addMessage(this.inputMessage, "sent");
+      if (this.inputMessage.length !== 0) {
+        this.addMessage(this.inputMessage, "sent");
+        this.botAnswerDelayed();
+      }
       this.inputMessage = "";
+      
     },
 
     botAnswer() {
