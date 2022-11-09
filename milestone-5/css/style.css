@@ -45,6 +45,10 @@ img.avatar {
   cursor: pointer;
 }
 
+ul {
+  list-style: none;
+}
+
 
 /* CONTACTS BAR E CHAT BAR*/
 .contacts-bar {
@@ -162,17 +166,13 @@ img.avatar {
 }
 
 /* CONTACT LIST*/
-.list {
-  list-style: none;
-}
-
 .list-item {
+  display: flex;
+  justify-content: space-between;
   padding: 10px 20px;
   border-top: 1px solid #dadbd3;
   border-bottom: 1px solid #dadbd3;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
 }
 
 .list-item img.avatar {
@@ -206,8 +206,8 @@ img.avatar {
 .chat-area {
   width: 100%;
   height: calc(100% - 140px);
-  overflow: auto;
   background-image: url(../img/mine.jpg);
+  overflow: auto;
   padding: 50px 70px;
 }
 
@@ -217,11 +217,11 @@ img.avatar {
 }
 
 .container-msg {
+  position: relative;
   min-width: 250px;
   max-width: 60%;
   padding: 10px 15px;
   border-radius: 10px;
-  position: relative;
 }
 
 .container-msg.recipient {
@@ -245,6 +245,10 @@ img.avatar {
   justify-content: space-between;
 }
 
+.text-msg {
+  width: calc(100% - 30px);
+}
+
 .time-msg {
   display: block;
   text-align: end;
@@ -255,10 +259,9 @@ img.avatar {
 
 /* CHEVRON MENU */
 .icon.chevron {
-  margin: 0 10px;
+  width: 30px;
   color: transparent;
-  position: relative;
-  right: 0;
+  text-align: end;
 }
 
 .icon.chevron.hover {
@@ -266,12 +269,11 @@ img.avatar {
 }
 
 .chevron-menu ul {
-  background-color: white;
-  list-style: none;
   position: absolute;
   top: 1.8rem;
   right: 1rem;
   z-index: 999;
+  background-color: white;
   padding: 15px 25px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
