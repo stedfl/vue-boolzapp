@@ -204,7 +204,20 @@ ul {
 .chat-bar {
   height: 100%;
   width: 65%;
+  display: flex;
+}
+
+.active-chat {
+  height: 100%;
   position: relative;
+}
+
+.active-chat.full {
+  width: 100%;
+}
+
+.active-chat.cut {
+  width: 50%;
 }
 
 .chat-area {
@@ -218,7 +231,6 @@ ul {
 .menu {
   position: absolute;
   background-color: white;
-  
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
@@ -364,4 +376,52 @@ ul {
   font-size: 1.5rem;
   color: #6b7376;
   margin: 0 30px;
+}
+
+/* BONUS */
+.info-contact-menu {
+  width: 50%;
+  background-color: white;
+}
+
+.title-menu {
+  height: 70px;
+  background-color: #eaeaea;
+  border-left: 1px solid #dadbd3;
+  line-height: 70px;
+}
+
+.avatar-container {
+  text-align: center;
+}
+
+.avatar-container .avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.avatar-container,
+.info-container {
+  padding: 40px;
+  border-bottom: 3px solid #eaeaea;
+}
+
+.info-contact-menu span {
+  padding:0 20px;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.info-contact-menu h2 {
+  margin: 15px 0 10px;
+  font-size: 1.8rem;
+}
+
+.info-contact-menu h3 {
+  font-weight: normal;
+}
+
+.info-contact-menu h5 {
+  font-size: 1rem;
+  margin-bottom: 10px;
 }

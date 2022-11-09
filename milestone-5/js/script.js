@@ -10,6 +10,7 @@ createApp({
       showChevronMenu: null,
       isInfoMenu: false,
       isChatMenu: false,
+      isContactMenu: false,
       doScroll: true,
       inputMessage: "",
       keyString: "",
@@ -22,6 +23,8 @@ createApp({
         {
           name: "Marco",
           avatar: "_1",
+          phoneNumber: "+39 345128932",
+          profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
           lastAccess: "07/11/22 15:30:55",
           messages: [
@@ -102,6 +105,8 @@ createApp({
         {
           name: "Lorenzo",
           avatar: "_2",
+          phoneNumber: "+39 392178532",
+          profileStatus: "La vita è come una scatola di cioccolatini.",
           visible: true,
           lastAccess: "07/11/22 11:25:55",
           messages: [
@@ -135,6 +140,8 @@ createApp({
         {
           name: "Claudio",
           avatar: "_3",
+          phoneNumber: "+39 3282846771",
+          profileStatus: "Christmas is coming!",
           visible: true,
           lastAccess: "07/11/22 13:44:55",
           messages: [
@@ -181,6 +188,8 @@ createApp({
         {
           name: "Antonio",
           avatar: "_4",
+          phoneNumber: "+39 3461299234",
+          profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
           lastAccess: "07/11/22 17:24:23",
           messages: [
@@ -217,6 +226,8 @@ createApp({
         {
           name: "Papà",
           avatar: "_5",
+          phoneNumber: "+39 3351788298",
+          profileStatus: "Amarsi è camminare insieme sotto la pioggia.",
           visible: true,
           lastAccess: "04/11/22 16:25:16",
           messages: [
@@ -252,6 +263,8 @@ createApp({
         {
           name: "Alessia M. collega",
           avatar: "_6",
+          phoneNumber: "+39 3494723345",
+          profileStatus: "L\'\ eternità è il mare mischiato col sole.",
           visible: true,
           lastAccess: "05/11/22 19:12:56",
           messages: [
@@ -320,6 +333,8 @@ createApp({
         {
           name: "Manaresi proprietario",
           avatar: "_7",
+          phoneNumber: "+39 3293378123",
+          profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
           lastAccess: "04/11/22 16:25:16",
           messages: [
@@ -346,6 +361,8 @@ createApp({
         {
           name: "Aiutogas",
           avatar: "_8",
+          phoneNumber: "+39 3713899674",
+          profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
           lastAccess: "06/11/22 17:30:16",
           messages: [
@@ -360,6 +377,8 @@ createApp({
         {
           name: "Marta Mancini Infermiera",
           avatar: "_6",
+          phoneNumber: "+39 3552132486",
+          profileStatus: "El mar es un tejado de botellas que en la memoria del marino sueña.",
           visible: true,
           lastAccess: "07/11/22 16:58:46",
           messages: [

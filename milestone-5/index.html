@@ -123,132 +123,163 @@
 
         <!-- CHAT SECTION -->
         <div class="chat-bar">
-          <!-- ACTIVE CHAT: CONTACT -->
-          <div class="recipient-user-bar recipient">
-            <div class="recipient info">
+          <div
+            :class="[{'full' : !isContactMenu}, {'cut' : isContactMenu} ]"
+            class="active-chat"
+          >
+            <!-- ACTIVE CHAT: CONTACT -->
+            <div class="recipient-user-bar recipient">
+              <div class="recipient info">
+                <img
+                  class="avatar"
+                  :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'"
+                  alt="contacts[activeIndex].name"
+                />
+                <div class="recipient description">
+                  <h2 class="recipient name">{{contacts[activeIndex].name}}</h2>
+                  <p
+                    v-if="contacts[activeIndex].lastAccess.slice(0, 8) === nowFormatted"
+                    class="last access"
+                  >
+                    Ultimo accesso oggi alle
+                    {{contacts[activeIndex].lastAccess.slice(9, 14)}}
+                  </p>
+                  <p v-else class="last access">
+                    Ultimo accesso il
+                    {{contacts[activeIndex].lastAccess.slice(0, 8)}} alle
+                    {{contacts[activeIndex].lastAccess.slice(9, 14)}}
+                  </p>
+                </div>
+              </div>
+              <div class="menu-icons">
+                <i class="fa-solid fa-magnifying-glass icon"></i>
+                <i class="fa-solid fa-paperclip icon"></i>
+                <i
+                  @click="isChatMenu=!isChatMenu"
+                  :class="{'active' : isChatMenu}"
+                  class="fa-solid fa-ellipsis-vertical icon ellipsis"
+                ></i>
+              </div>
+              <ul v-show="isChatMenu" class="chat menu">
+                <li @click="isContactMenu=true, isChatMenu=!isChatMenu">
+                  Info contatto
+                </li>
+                <li @click="deleteAllChat()" class="definitive">
+                  Elimina messaggi
+                </li>
+                <li>Elimina chat</li>
+              </ul>
+            </div>
+            <!-- /ACTIVE CHAT: CONTACT -->
+
+            <div class="chat-area">
+              <!-- ACTIVE CHAT: MESSAGES -->
+              <div
+                v-for="(message, msgIndex) in contacts[activeIndex].messages"
+                :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
+                class="message clearfix"
+              >
+                <div
+                  @mouseenter="showChevron = msgIndex"
+                  @mouseleave="showChevron = null"
+                  :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
+                  class="container-msg"
+                >
+                  <div class="text-container">
+                    <span v-if="message.textMessage === ''" class="delete">
+                      <i class="fa-solid fa-ban icon"></i>
+                      Hai eliminato questo messaggio
+                    </span>
+                    <span v-else class="text-msg">{{message.textMessage}}</span>
+                    <i
+                      @click="doChevronMenu(msgIndex)"
+                      :class="{'hover' : showChevron===msgIndex}"
+                      class="fa-solid fa-chevron-down icon chevron"
+                    ></i>
+                    <div
+                      v-show="showChevronMenu === msgIndex"
+                      class="chevron menu"
+                    >
+                      <ul>
+                        <li
+                          @mouseenter="isInfoMenu=true"
+                          @mouseleave="isInfoMenu=false"
+                        >
+                          Info messaggio
+                        </li>
+                        <div v-show="isInfoMenu" class="info-box">
+                          <p
+                            v-if="contacts[activeIndex].messages[msgIndex].status==='received'"
+                            class="info-msg"
+                          >
+                            Inviato da {{contacts[activeIndex].name}} il
+                            {{contacts[activeIndex].messages[msgIndex].date}}
+                          </p>
+                          <p v-else class="info-msg">
+                            Inviato a {{contacts[activeIndex].name}} il
+                            {{contacts[activeIndex].messages[msgIndex].date}}
+                          </p>
+                        </div>
+                        <li
+                          @click="deleteMessage(msgIndex, activeIndex)"
+                          v-if="message.textMessage === ''"
+                          class="delete-msg definitive"
+                        >
+                          Elimina definitivamente
+                        </li>
+                        <li
+                          @click="checkDeleteMessage(msgIndex, activeIndex)"
+                          v-else
+                          class="delete-msg"
+                        >
+                          Cancella messaggio
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span class="time-msg">{{message.date.slice(0, 14)}}</span>
+                </div>
+              </div>
+              <!-- /ACTIVE CHAT: MESSAGES -->
+            </div>
+
+            <!-- TYPING SECTION -->
+            <div class="typing-area">
+              <i class="fa-regular fa-face-smile icon"></i>
+              <input
+                @keyup.enter="userMessage();"
+                v-model.trim="inputMessage"
+                type="text"
+                class="type-input"
+                placeholder="Scrivi un messaggio"
+              />
+              <i class="fa-solid fa-microphone icon"></i>
+            </div>
+            <!-- /TYPING SECTION -->
+          </div>
+          <div v-show="isContactMenu" class="info-contact-menu">
+            <div class="title-menu">
+              <span @click="isContactMenu=!isContactMenu"
+                ><i class="fa-solid fa-x icon"></i
+              ></span>
+              <span>Info contatto</span>
+            </div>
+            <div class="avatar-container">
               <img
                 class="avatar"
                 :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'"
                 alt="contacts[activeIndex].name"
               />
-              <div class="recipient description">
-                <h2 class="recipient name">{{contacts[activeIndex].name}}</h2>
-                <p
-                  v-if="contacts[activeIndex].lastAccess.slice(0, 8) === nowFormatted"
-                  class="last access"
-                >
-                  Ultimo accesso oggi alle
-                  {{contacts[activeIndex].lastAccess.slice(9, 14)}}
-                </p>
-                <p v-else class="last access">
-                  Ultimo accesso il {{contacts[activeIndex].lastAccess.slice(0,
-                  8)}} alle {{contacts[activeIndex].lastAccess.slice(9, 14)}}
-                </p>
-              </div>
+              <h2 class="">{{contacts[activeIndex].name}}</h2>
+              <h3>{{contacts[activeIndex].phoneNumber}}</h3>
             </div>
-            <div class="menu-icons">
-              <i class="fa-solid fa-magnifying-glass icon"></i>
-              <i class="fa-solid fa-paperclip icon"></i>
-              <i
-                @click="isChatMenu=!isChatMenu"
-                :class="{'active' : isChatMenu}"
-                class="fa-solid fa-ellipsis-vertical icon ellipsis"
-              ></i>
+            <div class="info-container">
+              <h5>Info</h5>
+              <h3>"{{contacts[activeIndex].profileStatus}}"</h3>
             </div>
-            <ul v-show="isChatMenu" class="chat menu">
-              <li>Info contatto</li>
-              <li @click="deleteAllChat()"class="definitive">Elimina messaggi</li>
-              <li>Elimina chat</li>
-            </ul>
           </div>
-          <!-- /ACTIVE CHAT: CONTACT -->
-
-          <div class="chat-area">
-            <!-- ACTIVE CHAT: MESSAGES -->
-            <div
-              v-for="(message, msgIndex) in contacts[activeIndex].messages"
-              :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
-              class="message clearfix"
-            >
-              <div
-                @mouseenter="showChevron = msgIndex"
-                @mouseleave="showChevron = null"
-                :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
-                class="container-msg"
-              >
-                <div class="text-container">
-                  <span v-if="message.textMessage === ''" class="delete">
-                    <i class="fa-solid fa-ban icon"></i>
-                    Hai eliminato questo messaggio
-                  </span>
-                  <span v-else class="text-msg">{{message.textMessage}}</span>
-                  <i
-                    @click="doChevronMenu(msgIndex)"
-                    :class="{'hover' : showChevron===msgIndex}"
-                    class="fa-solid fa-chevron-down icon chevron"
-                  ></i>
-                  <div
-                    v-show="showChevronMenu === msgIndex"
-                    class="chevron menu"
-                  >
-                    <ul>
-                      <li
-                        @mouseenter="isInfoMenu=true"
-                        @mouseleave="isInfoMenu=false"
-                      >
-                        Info messaggio
-                      </li>
-                      <div v-show="isInfoMenu" class="info-box">
-                        <p
-                          v-if="contacts[activeIndex].messages[msgIndex].status==='received'"
-                          class="info-msg"
-                        >
-                          Inviato da {{contacts[activeIndex].name}} il
-                          {{contacts[activeIndex].messages[msgIndex].date}}
-                        </p>
-                        <p v-else class="info-msg">
-                          Inviato a {{contacts[activeIndex].name}} il
-                          {{contacts[activeIndex].messages[msgIndex].date}}
-                        </p>
-                      </div>
-                      <li
-                        @click="deleteMessage(msgIndex, activeIndex)"
-                        v-if="message.textMessage === ''"
-                        class="delete-msg definitive"
-                      >
-                        Elimina definitivamente
-                      </li>
-                      <li
-                        @click="checkDeleteMessage(msgIndex, activeIndex)"
-                        v-else
-                        class="delete-msg"
-                      >
-                        Cancella messaggio
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <span class="time-msg">{{message.date.slice(0, 14)}}</span>
-              </div>
-            </div>
-            <!-- /ACTIVE CHAT: MESSAGES -->
-          </div>
-
-          <!-- TYPING SECTION -->
-          <div class="typing-area">
-            <i class="fa-regular fa-face-smile icon"></i>
-            <input
-              @keyup.enter="userMessage();"
-              v-model.trim="inputMessage"
-              type="text"
-              class="type-input"
-              placeholder="Scrivi un messaggio"
-            />
-            <i class="fa-solid fa-microphone icon"></i>
-          </div>
-          <!-- /TYPING SECTION -->
+          <!-- /CHAT SECTION -->
         </div>
-        <!-- /CHAT SECTION -->
       </div>
     </div>
 
