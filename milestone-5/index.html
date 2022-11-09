@@ -77,10 +77,10 @@
               <!-- CONTACTS LIST -->
               <template v-for="(contact, index) in contacts">
                 <li
-                  v-if="contact.visible===true"
-                  :class="{'active' : counterIndex===index}"
+                  v-if="contact.visible"
+                  :class="{'active' : activeIndex===index}"
                   class="list-item"
-                  @click="counterIndex=index, doScroll=true"
+                  @click="activeIndex=index, doScroll=true"
                 >
                   <div class="recipient info">
                     <img
@@ -128,36 +128,45 @@
             <div class="recipient info">
               <img
                 class="avatar"
-                :src="'img/avatar' + contacts[counterIndex].avatar + '.jpg'"
-                alt="contacts[counterIndex].name"
+                :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'"
+                alt="contacts[activeIndex].name"
               />
               <div class="recipient description">
-                <h2 class="recipient name">{{contacts[counterIndex].name}}</h2>
+                <h2 class="recipient name">{{contacts[activeIndex].name}}</h2>
                 <p
-                  v-if="contacts[counterIndex].lastAccess.slice(0, 8) === nowFormatted"
+                  v-if="contacts[activeIndex].lastAccess.slice(0, 8) === nowFormatted"
                   class="last access"
                 >
                   Ultimo accesso oggi alle
-                  {{contacts[counterIndex].lastAccess.slice(9, 14)}}
+                  {{contacts[activeIndex].lastAccess.slice(9, 14)}}
                 </p>
                 <p v-else class="last access">
-                  Ultimo accesso il {{contacts[counterIndex].lastAccess.slice(0,
-                  8)}} alle {{contacts[counterIndex].lastAccess.slice(9, 14)}}
+                  Ultimo accesso il {{contacts[activeIndex].lastAccess.slice(0,
+                  8)}} alle {{contacts[activeIndex].lastAccess.slice(9, 14)}}
                 </p>
               </div>
             </div>
             <div class="menu-icons">
               <i class="fa-solid fa-magnifying-glass icon"></i>
               <i class="fa-solid fa-paperclip icon"></i>
-              <i class="fa-solid fa-ellipsis-vertical icon"></i>
+              <i
+                @click="isChatMenu=!isChatMenu"
+                :class="{'active' : isChatMenu}"
+                class="fa-solid fa-ellipsis-vertical icon ellipsis"
+              ></i>
             </div>
+            <ul v-show="isChatMenu" class="chat menu">
+              <li>Info contatto</li>
+              <li>Elimina messaggi</li>
+              <li>Elimina chat</li>
+            </ul>
           </div>
           <!-- /ACTIVE CHAT: CONTACT -->
 
           <div class="chat-area">
             <!-- ACTIVE CHAT: MESSAGES -->
             <div
-              v-for="(message, msgIndex) in contacts[counterIndex].messages"
+              v-for="(message, msgIndex) in contacts[activeIndex].messages"
               :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
               class="message clearfix"
             >
@@ -180,35 +189,37 @@
                   ></i>
                   <div
                     v-show="showChevronMenu === msgIndex"
-                    class="chevron-menu"
+                    class="chevron menu"
                   >
                     <ul>
-                      <li @mouseenter="isInfoMenu=true" @mouseleave="isInfoMenu=false">Info messaggio</li>
-                      <div v-show="isInfoMenu===true"class="info-box">
-                        <p
-                        v-if="contacts[counterIndex].messages[msgIndex].status==='received'"
-                        class="info-msg"
+                      <li
+                        @mouseenter="isInfoMenu=true"
+                        @mouseleave="isInfoMenu=false"
                       >
-                        Inviato da {{contacts[counterIndex].name}}
-                        il {{contacts[counterIndex].messages[msgIndex].date}}
-                      </p>
-                      <p
-                      v-else
-                      class="info-msg"
-                    >
-                      Inviato a {{contacts[counterIndex].name}}
-                      il {{contacts[counterIndex].messages[msgIndex].date}}
-                    </p>
+                        Info messaggio
+                      </li>
+                      <div v-show="isInfoMenu" class="info-box">
+                        <p
+                          v-if="contacts[activeIndex].messages[msgIndex].status==='received'"
+                          class="info-msg"
+                        >
+                          Inviato da {{contacts[activeIndex].name}} il
+                          {{contacts[activeIndex].messages[msgIndex].date}}
+                        </p>
+                        <p v-else class="info-msg">
+                          Inviato a {{contacts[activeIndex].name}} il
+                          {{contacts[activeIndex].messages[msgIndex].date}}
+                        </p>
                       </div>
                       <li
-                        @click="deleteMessage(msgIndex, counterIndex)"
+                        @click="deleteMessage(msgIndex, activeIndex)"
                         v-if="message.textMessage === ''"
                         class="delete-msg definitive"
                       >
                         Elimina definitivamente
                       </li>
                       <li
-                        @click="checkDeleteMessage(msgIndex, counterIndex)"
+                        @click="checkDeleteMessage(msgIndex, activeIndex)"
                         v-else
                         class="delete-msg"
                       >

@@ -49,7 +49,6 @@ ul {
   list-style: none;
 }
 
-
 /* CONTACTS BAR E CHAT BAR*/
 .contacts-bar {
   height: 100%;
@@ -205,6 +204,7 @@ ul {
 .chat-bar {
   height: 100%;
   width: 65%;
+  position: relative;
 }
 
 .chat-area {
@@ -213,6 +213,42 @@ ul {
   background-image: url(../img/mine.jpg);
   overflow: auto;
   padding: 50px 70px;
+}
+
+.menu {
+  position: absolute;
+  background-color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.chat.menu {
+  right: 30px;
+  top: 60px;
+  z-index: 998;
+  width: 200px;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.menu li:not(li:last-child) {
+  margin-bottom: 20px;
+}
+
+.icon.ellipsis {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.icon.ellipsis.active {
+  background-color: lightgray;
 }
 
 /* ACTIVE CHAT: MESSAGES */
@@ -278,35 +314,25 @@ ul {
   color: #b1b1b1;
 }
 
-.chevron-menu ul {
-  position: absolute;
+.chevron.menu {
   top: 1.8rem;
   right: 1rem;
   z-index: 999;
-  background-color: white;
-  padding: 15px 25px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.chevron-menu ul li:last-child {
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.chevron-menu li:first-child {
+.chevron.menu li:first-child {
   cursor: help;
 }
 
-.chevron-menu li:hover {
+.chevron.menu li:hover {
   color: #31ade7;
 }
 
-.chevron-menu li:last-child:active {
+.chevron.menu li:last-child:active {
   color: #0083c0;
 }
 
-.chevron-menu .definitive:hover {
+.chevron.menu .definitive:hover {
   color: red;
 }
 
@@ -315,7 +341,7 @@ ul {
   position: absolute;
   bottom: calc(100% + 20px);
   padding: 1rem;
-  box-shadow: 0px 0px 10px #31ade7;
+  box-shadow: 0px 0px 8px #31ade7;
   font-size: 0.8rem;
 }
 

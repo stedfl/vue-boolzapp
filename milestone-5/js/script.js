@@ -5,10 +5,11 @@ const now = DateTime.now();
 createApp({
   data() {
     return {
-      counterIndex: 0,
+      activeIndex: 0,
       showChevron: null,
       showChevronMenu: null,
       isInfoMenu: false,
+      isChatMenu: false,
       doScroll: true,
       inputMessage: "",
       keyString: "",
@@ -410,7 +411,7 @@ createApp({
         textMessage: text,
         status: status,
       };
-      this.contacts[this.counterIndex].messages.push(newMessage);
+      this.contacts[this.activeIndex].messages.push(newMessage);
       this.doScroll = true;
     },
 
@@ -427,7 +428,7 @@ createApp({
       this.extractBotIndex();
       const botMessage = this.botMessages[this.botIndex];
       this.addMessage(botMessage, "received");
-      this.contacts[this.counterIndex].lastAccess = this.formattingDate(now);
+      this.contacts[this.activeIndex].lastAccess = this.formattingDate(now);
     },
 
     botAnswerDelayed() {
@@ -480,21 +481,21 @@ createApp({
       }
     },
 
-    deleteMessage(msgIndex, counterIndex) {
-      if (this.contacts[counterIndex].messages.length === 1) {
-        this.contacts[counterIndex].messages[msgIndex] = {};
+    deleteMessage(msgIndex, activeIndex) {
+      if (this.contacts[activeIndex].messages.length === 1) {
+        this.contacts[activeIndex].messages[msgIndex] = {};
       } else {
-        this.contacts[counterIndex].messages.splice(msgIndex, 1);
+        this.contacts[activeIndex].messages.splice(msgIndex, 1);
       }
       this.showChevronMenu = null;
       this.showChevron = null;
     },
 
-    checkDeleteMessage(msgIndex, counterIndex) {
-      if(this.contacts[counterIndex].messages[msgIndex].status === 'sent') {
-        this.contacts[counterIndex].messages[msgIndex].textMessage = '';
+    checkDeleteMessage(msgIndex, activeIndex) {
+      if(this.contacts[activeIndex].messages[msgIndex].status === 'sent') {
+        this.contacts[activeIndex].messages[msgIndex].textMessage = '';
       } else {
-        this.deleteMessage(msgIndex, counterIndex);
+        this.deleteMessage(msgIndex, activeIndex);
       }
       this.showChevronMenu = null;
       this.showChevron = null;
