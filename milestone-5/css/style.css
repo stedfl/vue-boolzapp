@@ -287,6 +287,14 @@ ul {
   cursor: pointer;
 }
 
+.chevron-menu li:hover {
+  color: #31ade7;
+}
+
+.chevron-menu li:active {
+  color: #0083c0;
+}
+
 /* TYPING SECTION */
 .typing-area {
   background-color: #f3eeea;

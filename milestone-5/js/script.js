@@ -177,7 +177,7 @@ createApp({
           ],
         },
         {
-          name: "Claudio",
+          name: "Antonio",
           avatar: "_4",
           visible: true,
           lastAccess: "07/11/22 17:24:23",
@@ -492,7 +492,8 @@ createApp({
 
     formattingToday() {
       this.nowFormatted = now.setLocale('it').toFormat("dd'/'LL'/'yy").toLocaleString();
-    }
+    },
+
   },
   updated() {
     this.scrollEndMessage();
