@@ -78,10 +78,11 @@
               <template v-for="(contact, index) in contacts">
                 <li
                   v-if="contact.visible"
-                  :class="{'active' : activeIndex===index}"
+                  :class="{'active' : activeIndex === index}"
                   class="list-item"
-                  @click="activeIndex=index, doScroll=true"
+                  @click="activeIndex = index, doScroll = true"
                 >
+
                   <div class="recipient info">
                     <img
                       class="avatar"
@@ -89,7 +90,7 @@
                       :alt="contact.name"
                     />
                     <div class="recipient description">
-                      <h2 v-if="contact.name===''" class="recipient name">
+                      <h2 v-if="contact.name === ''" class="recipient name">
                         {{contact.phoneNumber}}
                       </h2>
                       <h2 v-else class="recipient name">{{contact.name}}</h2>
@@ -111,6 +112,7 @@
                       </p>
                     </div>
                   </div>
+
                   <p
                     v-if="!contact.messages.length"
                     class="last time-message"
@@ -125,6 +127,7 @@
                     {{contact.messages[contact.messages.length -
                     1].date.slice(0, 8)}}
                   </p>
+
                 </li>
               </template>
               <!-- /CONTACTS LIST -->
@@ -137,7 +140,7 @@
         <div class="chat-bar">
           <!-- ACTIVE CHAT: CONTACT -->
           <div
-            :class="[{'full' : !isContactMenu}, {'cut' : isContactMenu} ]"
+            :class="[{'full' : !isContactMenu}, {'cut' : isContactMenu}]"
             class="active-chat"
           >
             <div class="recipient-user-bar recipient">
@@ -149,7 +152,7 @@
                 />
                 <div class="recipient description">
                   <h2
-                    v-if="contacts[activeIndex].name===''"
+                    v-if="contacts[activeIndex].name === ''"
                     class="recipient name"
                   >
                     {{contacts[activeIndex].phoneNumber}}
@@ -181,7 +184,7 @@
                 ></i>
               </div>
               <ul v-show="isChatMenu" class="chat menu">
-                <li @click="isContactMenu=true, isChatMenu=!isChatMenu">
+                <li @click="isContactMenu = !isContactMenu, isChatMenu = !isChatMenu">
                   Info contatto
                 </li>
                 <li @click="deleteAllChat()" class="definitive">
@@ -195,13 +198,13 @@
               <!-- ACTIVE CHAT: MESSAGES -->
               <div
                 v-for="(message, msgIndex) in contacts[activeIndex].messages"
-                :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
+                :class="{'user': message.status === 'sent','recipient' : message.status === 'received'}"
                 class="message clearfix"
               >
                 <div
                   @mouseenter="showChevron = msgIndex"
                   @mouseleave="showChevron = null"
-                  :class="{'user': message.status==='sent','recipient' : message.status==='received'}"
+                  :class="{'user': message.status === 'sent','recipient' : message.status === 'received'}"
                   class="container-msg"
                 >
                   <div class="text-container">
@@ -212,7 +215,7 @@
                     <span v-else class="text-msg">{{message.textMessage}}</span>
                     <i
                       @click="doChevronMenu(msgIndex)"
-                      :class="{'hover' : showChevron===msgIndex}"
+                      :class="{'hover' : showChevron === msgIndex}"
                       class="fa-solid fa-chevron-down icon chevron"
                     ></i>
                     <div
@@ -221,14 +224,14 @@
                     >
                       <ul>
                         <li
-                          @mouseenter="isInfoMenu=true"
-                          @mouseleave="isInfoMenu=false"
+                          @mouseenter="isInfoMenu=!isInfoMenu"
+                          @mouseleave="isInfoMenu=!isInfoMenu"
                         >
                           Info messaggio
                         </li>
                         <div v-show="isInfoMenu" class="info-box">
                           <p
-                            v-if="contacts[activeIndex].messages[msgIndex].status==='received'"
+                            v-if="contacts[activeIndex].messages[msgIndex].status === 'received'"
                             class="info-msg"
                           >
                             Inviato da {{contacts[activeIndex].name}} il
@@ -280,7 +283,7 @@
           <!-- INFO CONTACT MENU  -->
           <div v-show="isContactMenu" class="info-contact-menu">
             <div class="title-menu">
-              <span @click="isContactMenu=!isContactMenu"
+              <span @click="isContactMenu = !isContactMenu"
                 ><i class="fa-solid fa-x icon mark"></i
               ></span>
               <span>Info contatto</span>

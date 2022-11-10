@@ -465,6 +465,14 @@ createApp({
       }
     },
 
+    userMessage() {
+      if (this.inputMessage.length !== 0) {
+        this.addMessage(this.inputMessage, "sent");
+        this.botAnswerDelayed();
+      }
+      this.inputMessage = "";
+    },
+
     addMessage(text, status) {
       const newMessage = {
         date: this.formattingDate(now),
@@ -475,12 +483,10 @@ createApp({
       this.doScroll = true;
     },
 
-    userMessage() {
-      if (this.inputMessage.length !== 0) {
-        this.addMessage(this.inputMessage, "sent");
-        this.botAnswerDelayed();
-      }
-      this.inputMessage = "";
+    botAnswerDelayed() {
+      setTimeout(() => {
+        this.botAnswer();
+      }, 1000);
     },
 
     botAnswer() {
@@ -488,12 +494,6 @@ createApp({
       const botMessage = this.botMessages[this.botIndex];
       this.addMessage(botMessage, "received");
       this.contacts[this.activeIndex].lastAccess = this.formattingDate(now);
-    },
-
-    botAnswerDelayed() {
-      setTimeout(() => {
-        this.botAnswer();
-      }, 1000);
     },
 
     extractBotIndex() {
@@ -540,12 +540,6 @@ createApp({
       }
     },
 
-    deleteMessage(msgIndex) {
-      this.contacts[this.activeIndex].messages.splice(msgIndex, 1);
-      this.showChevronMenu = null;
-      this.showChevron = null;
-    },
-
     checkDeleteMessage(msgIndex) {
       if (
         this.contacts[this.activeIndex].messages[msgIndex].status === "sent"
@@ -554,6 +548,12 @@ createApp({
       } else {
         this.deleteMessage(msgIndex);
       }
+      this.showChevronMenu = null;
+      this.showChevron = null;
+    },
+
+    deleteMessage(msgIndex) {
+      this.contacts[this.activeIndex].messages.splice(msgIndex, 1);
       this.showChevronMenu = null;
       this.showChevron = null;
     },
