@@ -13,6 +13,7 @@ createApp({
       isContactMenu: false,
       isExpandedAvatar: false,
       doScroll: true,
+      doScrollActive: true,
       inputMessage: "",
       keyString: "",
       nowFormatted: "",
@@ -467,9 +468,10 @@ createApp({
     },
 
     scrollActiveContact() {
-      const activeContact = document.querySelector(".list-item.active");
-      console.log(activeContact);
-      activeContact.scrollIntoView();
+      if(this.doScrollActive) {
+        const activeContact = document.querySelector(".list-item.active");
+        activeContact.scrollIntoView();
+      }
     },
 
     userMessage() {
@@ -522,6 +524,7 @@ createApp({
     },
 
     handlerKeyUp() {
+      this.doScrollActive = false;
       for (contact of this.contacts) {
         contact.visible = true;
       }
@@ -529,6 +532,7 @@ createApp({
       if (lowerKeyString === "") {
         for (contact of this.contacts) {
           contact.visible = true;
+          this.doScrollActive = true;
         }
       } else {
         for (contact of this.contacts) {
