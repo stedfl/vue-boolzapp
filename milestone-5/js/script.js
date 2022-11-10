@@ -466,6 +466,12 @@ createApp({
       }
     },
 
+    scrollActiveContact() {
+      const activeContact = document.querySelector(".list-item.active");
+      console.log(activeContact);
+      activeContact.scrollIntoView();
+    },
+
     userMessage() {
       if (this.inputMessage.length !== 0) {
         this.addMessage(this.inputMessage, "sent");
@@ -584,9 +590,11 @@ createApp({
   },
   updated() {
     this.scrollEndMessage();
+    this.scrollActiveContact();
   },
   mounted() {
     this.scrollEndMessage();
     this.formattingToday();
+    this.scrollActiveContact();
   },
 }).mount("#app");

@@ -80,7 +80,7 @@
                   v-if="contact.visible"
                   :class="{'active' : activeIndex === index}"
                   class="list-item"
-                  @click="activeIndex = index, doScroll = true"
+                  @click="activeIndex = index, doScroll = true, scrollActiveContact()"
                 >
                   <div class="recipient info">
                     <img
