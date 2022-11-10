@@ -26,75 +26,75 @@ createApp({
           phoneNumber: "+39 345128932",
           profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
-          lastAccess: "07/11/22 15:30:55",
+          lastAccess: "09/11/22 15:30:55",
           messages: [
             {
-              date: "10/10/22 15:30:55",
+              date: "08/11/22 15:30:55",
               textMessage: "Ciao, sei andato a prendere il cane?",
               status: "sent",
             },
             {
-              date: "10/10/22 15:31:23",
+              date: "08/11/22 15:31:23",
               textMessage: "La toilettatura mi ha detto che finiva alle 15.20",
               status: "sent",
             },
             {
-              date: "10/10/22 15:35:13",
+              date: "08/11/22 15:35:13",
               textMessage: "si appena tornati, tutto ok",
               status: "received",
             },
             {
-              date: "10/10/22 15:36:01",
+              date: "08/11/22 15:36:01",
               textMessage:
                 "mi ha fatto pagare tanto stavolta, non ci torniamo più li!",
               status: "received",
             },
             {
-              date: "10/10/22 15:37:12",
+              date: "08/11/22 15:37:12",
               textMessage:
                 "Ma come?? a telefono mi aveva detto 50 euro tutto!!",
               status: "sent",
             },
             {
-              date: "10/10/22 15:38:32",
+              date: "08/11/22 15:38:32",
               textMessage:
                 "dice che il pelo era molto sporco e ha impiegato tanto a districarlo. Boh!",
               status: "received",
             },
             {
-              date: "11/10/22 12:34:12",
+              date: "08/11/22 12:34:12",
               textMessage:
                 "Potresti andare a fare spesa? Oggi esco tardi, non riesco",
               status: "received",
             },
             {
-              date: "11/10/22 12:35:22",
+              date: "08/11/22 12:35:22",
               textMessage: "Mancano latte, caffè",
               status: "received",
             },
             {
-              date: "11/10/22 12:42:57",
+              date: "08/11/22 12:42:57",
               textMessage: "Ma sei sicuro? ho visto che il caffè c' è ancora",
               status: "sent",
             },
             {
-              date: "11/10/22 12:45:51",
+              date: "08/11/22 12:45:51",
               textMessage:
                 "Ho visto che la prossima settimana è in offerta alla lidl",
               status: "sent",
             },
             {
-              date: "11/10/22 12:46:24",
+              date: "08/11/22 12:46:24",
               textMessage: "aspettiamo no? così risparmiamo",
               status: "sent",
             },
             {
-              date: "11/10/22 12:47:27",
+              date: "08/11/22 12:47:27",
               textMessage: "No, il caffè che hai visto è quello deka",
               status: "received",
             },
             {
-              date: "11/10/22 12:49:36",
+              date: "08/11/22 12:49:36",
               textMessage:
                 "va bene dai allora passo a prendere un pacco giusto per sta settimana",
               status: "sent",
@@ -102,8 +102,99 @@ createApp({
           ],
         },
         {
-          name: "Lorenzo",
+          name: "",
+          avatar: "_general",
+          phoneNumber: "+39 3713899674",
+          profileStatus: "www.aiutogas.it, sempre al vostro fianco",
+          visible: true,
+          lastAccess: "06/11/22 17:30:16",
+          messages: [
+            {
+              date: "05/11/22 08:00:00",
+              textMessage:
+                "Buongiorno, Aiutogas Le ricorda l' appuntamento per la pulizia della caldaia e controllo fumi fissato per lunedì 14 Novembre nella fascia oraria 15-18. Per disdetta, non esiti a ricontattarci su questo numero",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Papà",
           avatar: "_2",
+          phoneNumber: "+39 3351788298",
+          profileStatus: "Amarsi è camminare insieme sotto la pioggia.",
+          visible: true,
+          lastAccess: "04/11/22 16:25:16",
+          messages: [
+            {
+              date: "01/11/22 17:32:45",
+              textMessage:
+                "Figlio mio, ti ho comperato le castagne così le facciamo stasera",
+              status: "received",
+            },
+            {
+              date: "01/11/22 17:46:34",
+              textMessage:
+                "Papà grazie ma come ti avevo detto stasera non torno a cena",
+              status: "sent",
+            },
+            {
+              date: "01/11/22 17:48:12",
+              textMessage: "Colpa mia, non me lo ricordavo",
+              status: "received",
+            },
+            {
+              date: "01/11/22 18:01:01",
+              textMessage: "Domani le facciamo!",
+              status: "sent",
+            },
+            {
+              date: "01/11/22 18:03:45",
+              textMessage: "Va bene, buona serata",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Antonio",
+          avatar: "_3",
+          phoneNumber: "+39 3461299234",
+          profileStatus: "Ciao, sto usando WhatsApp.",
+          visible: true,
+          lastAccess: "07/11/22 17:24:23",
+          messages: [
+            {
+              date: "06/11/22 13:24:56",
+              textMessage:
+                "Ciao, sto cercando parcheggio in san vitale ma non trovo nulla?",
+              status: "received",
+            },
+            {
+              date: "10/10/22 13:25:23",
+              textMessage:
+                "Prova in vicolo Bianchetti, di solito qualcosa si trova",
+              status: "sent",
+            },
+            {
+              date: "10/10/22 13:31:45",
+              textMessage:
+                "Ci sono già andato ma nulla, è un casino in giro per la partita",
+              status: "received",
+            },
+            {
+              date: "10/10/22 13:45:01",
+              textMessage: "Trovato! Non so come",
+              status: "received",
+            },
+            {
+              date: "10/10/22 13:46:12",
+              textMessage: "è uscita proprio ora una macchina",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Lorenzo",
+          avatar: "_4",
           phoneNumber: "+39 392178532",
           profileStatus: "La vita è come una scatola di cioccolatini.",
           visible: true,
@@ -138,7 +229,7 @@ createApp({
         },
         {
           name: "Claudio",
-          avatar: "_3",
+          avatar: "_5",
           phoneNumber: "+39 3282846771",
           profileStatus: "Christmas is coming!",
           visible: true,
@@ -185,81 +276,6 @@ createApp({
           ],
         },
         {
-          name: "Antonio",
-          avatar: "_4",
-          phoneNumber: "+39 3461299234",
-          profileStatus: "Ciao, sto usando WhatsApp.",
-          visible: true,
-          lastAccess: "07/11/22 17:24:23",
-          messages: [
-            {
-              date: "06/11/22 13:24:56",
-              textMessage:
-                "Ciao, sto cercando parcheggio in san vitale ma non trovo nulla?",
-              status: "received",
-            },
-            {
-              date: "10/10/22 13:25:23",
-              textMessage:
-                "Prova in vicolo Bianchetti, di solito qualcosa si trova",
-              status: "sent",
-            },
-            {
-              date: "10/10/22 13:31:45",
-              textMessage:
-                "Ci sono già andato ma nulla, è un casino in giro per la partita",
-              status: "received",
-            },
-            {
-              date: "10/10/22 13:45:01",
-              textMessage: "Trovato! Non so come",
-              status: "received",
-            },
-            {
-              date: "10/10/22 13:46:12",
-              textMessage: "è uscita proprio ora una macchina",
-              status: "received",
-            },
-          ],
-        },
-        {
-          name: "Papà",
-          avatar: "_5",
-          phoneNumber: "+39 3351788298",
-          profileStatus: "Amarsi è camminare insieme sotto la pioggia.",
-          visible: true,
-          lastAccess: "04/11/22 16:25:16",
-          messages: [
-            {
-              date: "01/11/22 17:32:45",
-              textMessage:
-                "Figlio mio, ti ho comperato le castagne così le facciamo stasera",
-              status: "received",
-            },
-            {
-              date: "01/11/22 17:46:34",
-              textMessage:
-                "Papà grazie ma come ti avevo detto stasera non torno a cena",
-              status: "sent",
-            },
-            {
-              date: "01/11/22 17:48:12",
-              textMessage: "Colpa mia, non me lo ricordavo",
-              status: "received",
-            },
-            {
-              date: "10/10/22 18:01:01",
-              textMessage: "Domani le facciamo!",
-              status: "sent",
-            },
-            {
-              date: "10/10/22 18:03:45",
-              textMessage: "Va bene, buona serata",
-              status: "received",
-            },
-          ],
-        },
-        {
           name: "Alessia M. collega",
           avatar: "_6",
           phoneNumber: "+39 3494723345",
@@ -268,61 +284,61 @@ createApp({
           lastAccess: "05/11/22 19:12:56",
           messages: [
             {
-              date: "26/09/22 10:18:45",
+              date: "26/07/22 10:18:45",
               textMessage:
                 "Ciao Ste, mi mandi il tuo iban così ti faccio il bonifico?",
               status: "received",
             },
             {
-              date: "28/09/22 12:45:02",
+              date: "28/07/22 12:45:02",
               textMessage:
                 "Ciao Ale!! Scusami se ti rispondo solo ora ma sono stata incasinata con le scadenze",
               status: "sent",
             },
             {
-              date: "28/09/22 12:47:23",
+              date: "28/07/22 12:47:23",
               textMessage:
                 "ma figurati, ti capisco, vuoi che si vediamo in settimana per un aperitivo anche con Sarah? Così ti dò i soldi a mano",
               status: "received",
             },
             {
-              date: "28/09/22 12:48:11",
+              date: "28/07/22 12:48:11",
               textMessage: "*ci",
               status: "received",
             },
             {
-              date: "28/09/22 12:54:23",
+              date: "28/07/22 12:54:23",
               textMessage: "Si magari, facciamo giovedì? Dove?",
               status: "sent",
             },
             {
-              date: "28/09/22 12:56:43",
+              date: "28/07/22 12:56:43",
               textMessage: "Sento Sarah e ti aggiorno",
               status: "received",
             },
             {
-              date: "28/09/22 13:05:23",
+              date: "28/07/22 13:05:23",
               textMessage: "Perfetto grazie",
               status: "sent",
             },
             {
-              date: "30/09/22 14:21:56",
+              date: "30/07/22 14:21:56",
               textMessage: "Novità?",
               status: "sent",
             },
             {
-              date: "30/09/22 14:45:24",
+              date: "30/07/22 14:45:24",
               textMessage:
                 "Si confermato giovedì alle 21, forse viene Massimo!",
               status: "received",
             },
             {
-              date: "30/09/22 14:46:25",
+              date: "30/07/22 14:46:25",
               textMessage: "Nooo che pallee",
               status: "sent",
             },
             {
-              date: "30/09/22 16:35:21",
+              date: "30/07/22 16:35:21",
               textMessage:
                 "Lo so, ha sentito che ne stavamo parlando e si è autoinvitato",
               status: "received",
@@ -330,8 +346,31 @@ createApp({
           ],
         },
         {
-          name: "Manaresi proprietario",
+          name: "Marta Mancini Infermiera",
           avatar: "_7",
+          phoneNumber: "+39 3552132486",
+          profileStatus:
+            "El mar es un tejado de botellas que en la memoria del marino sueña.",
+          visible: true,
+          lastAccess: "07/11/22 16:58:46",
+          messages: [
+            {
+              date: "01/07/22 14:57:31",
+              textMessage:
+                "Ciao Giorgia!! Perdonami, ieri ti ho scritto tutta allarmata. Per fortuna c' era l' Oriolo, l' endocrinologa e le ho fatto vedere gli esami. Mi ha detto di stare tranquilla perchè il PTH si alza quando è bassa la vitamina D, mi ha aumentato il dosaggio del colecalciferolo che mi aveva prescritto l' ortopedico. A settembre devo ripetere gli esami. Grazie mille per il supporto",
+              status: "sent",
+            },
+            {
+              date: "01/07/22 15:05:34",
+              textMessage:
+                "Ciao Sofy! Ma figurati, non ho fatto nulla. In effetti la vitamina D è carente ma non troppo...comunque monitorala sempre! Tu per qualsiasi dubbio chiamami senza problemi e spero di vederti presto",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Manaresi proprietario",
+          avatar: "_8",
           phoneNumber: "+39 3293378123",
           profileStatus: "Ciao, sto usando WhatsApp.",
           visible: true,
@@ -358,40 +397,40 @@ createApp({
           ],
         },
         {
-          name: "",
-          avatar: "_general",
-          phoneNumber: "+39 3713899674",
-          profileStatus: "Ciao, sto usando WhatsApp.",
+          name: "Luca Corso",
+          avatar: "_9",
+          phoneNumber: "+39 3382490478",
+          profileStatus:
+            "Come una commedia, così è la vita: non quanto è lunga, ma quanto bene è recitata, è ciò che importa.",
           visible: true,
-          lastAccess: "06/11/22 17:30:16",
+          lastAccess: "04/11/22 16:25:16",
           messages: [
             {
-              date: "05/11/22 08:00:00",
+              date: "10/03/22 17:32:45",
               textMessage:
-                "Buongiorno, Aiutogas Le ricorda l' appuntamento per la pulizia della caldaia e controllo fumi fissato per lunedì 14 Novembre nella fascia oraria 15-18. Per disdetta, non esiti a ricontattarci su questo numero",
+                "Ciao Sofia, ti ricordi di me? Abbiamo fatto insieme il corso di sicurezza sul lavoro",
               status: "received",
             },
-          ],
-        },
-        {
-          name: "Marta Mancini Infermiera",
-          avatar: "_6",
-          phoneNumber: "+39 3552132486",
-          profileStatus:
-            "El mar es un tejado de botellas que en la memoria del marino sueña.",
-          visible: true,
-          lastAccess: "07/11/22 16:58:46",
-          messages: [
             {
-              date: "01/07/22 14:57:31",
-              textMessage:
-                "Ciao Giorgia!! Perdonami, ieri ti ho scritto tutta allarmata. Per fortuna c' era l' Oriolo, l' endocrinologa e le ho fatto vedere gli esami. Mi ha detto di stare tranquilla perchè il PTH si alza quando è bassa la vitamina D, mi ha aumentato il dosaggio del colecalciferolo che mi aveva prescritto l' ortopedico. A settembre devo ripetere gli esami. Grazie mille per il supporto",
+              date: "10/03/22 17:46:34",
+              textMessage: "Ciao Luca, si certo che mi ricordo! Come stai?",
               status: "sent",
             },
             {
-              date: "01/07/22 15:05:34",
+              date: "10/03/22 17:48:12",
               textMessage:
-                "Ciao Sofy! Ma figurati, non ho fatto nulla. In effetti la vitamina D è carente ma non troppo...comunque monitorala sempre! Tu per qualsiasi dubbio chiamami senza problemi e spero di vederti presto",
+                "Bene tu, ti scrivo perchè mi sto trasferendo a Bologna e volevo chiederti qualche dritta",
+              status: "received",
+            },
+            {
+              date: "10/03/22 18:01:01",
+              textMessage:
+                "Certo, forse è meglio che ci sentiamo telefonicamente cos' ti spiego bene la situazione",
+              status: "sent",
+            },
+            {
+              date: "10/03/22 18:03:45",
+              textMessage: "Ti chiamo subito",
               status: "received",
             },
           ],

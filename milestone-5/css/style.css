@@ -430,3 +430,36 @@ ul {
 .icon.mark:active {
   color: #6b7376;
 }
+
+/* MEDIAQUERY */
+@media screen and (max-width: 1140px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .last.message,
+  .last.time-message,
+  .desktop-alert,
+  .user .menu-icons {
+    display: none;
+  }
+
+  .info {
+    display: block;
+    text-align: center;
+  }
+
+  .contacts-bar {
+    width: 20%;
+  }
+
+  .chat-bar {
+    width: 80%;
+  }
+
+ .recipient .info img {
+    text-align: center;
+  }
+}
