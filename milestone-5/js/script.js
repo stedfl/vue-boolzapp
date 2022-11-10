@@ -11,6 +11,7 @@ createApp({
       isInfoMenu: false,
       isChatMenu: false,
       isContactMenu: false,
+      isExpandedAvatar: false,
       doScroll: true,
       inputMessage: "",
       keyString: "",

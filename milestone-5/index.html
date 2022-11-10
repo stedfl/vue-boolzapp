@@ -82,7 +82,6 @@
                   class="list-item"
                   @click="activeIndex = index, doScroll = true"
                 >
-
                   <div class="recipient info">
                     <img
                       class="avatar"
@@ -127,7 +126,6 @@
                     {{contact.messages[contact.messages.length -
                     1].date.slice(0, 8)}}
                   </p>
-
                 </li>
               </template>
               <!-- /CONTACTS LIST -->
@@ -146,6 +144,7 @@
             <div class="recipient-user-bar recipient">
               <div class="recipient info">
                 <img
+                  @click="isExpandedAvatar = !isExpandedAvatar, isChatMenu = false, isContactMenu = false"
                   class="avatar"
                   :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'"
                   alt="contacts[activeIndex].name"
@@ -178,13 +177,15 @@
                 <i class="fa-solid fa-magnifying-glass icon"></i>
                 <i class="fa-solid fa-paperclip icon"></i>
                 <i
-                  @click="isChatMenu=!isChatMenu"
+                  @click="isChatMenu=!isChatMenu, isExpandedAvatar=false"
                   :class="{'active' : isChatMenu}"
                   class="fa-solid fa-ellipsis-vertical icon ellipsis"
                 ></i>
               </div>
               <ul v-show="isChatMenu" class="chat menu">
-                <li @click="isContactMenu = !isContactMenu, isChatMenu = !isChatMenu">
+                <li
+                  @click="isContactMenu = !isContactMenu, isChatMenu = !isChatMenu"
+                >
                   Info contatto
                 </li>
                 <li @click="deleteAllChat()" class="definitive">
@@ -303,6 +304,22 @@
             </div>
           </div>
           <!-- /INFO CONTACT MENU  -->
+
+          <!-- AVATAR EXPANDED PHOTO MENU -->
+          <div v-show="isExpandedAvatar" class="avatar-container expanded">
+            <p>
+              <i
+                @click="isExpandedAvatar = !isExpandedAvatar"
+                class="fa-solid fa-x icon mark"
+              ></i>
+            </p>
+            <img
+              class="avatar"
+              :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'"
+              alt="contacts[activeIndex].name"
+            />
+          </div>
+          <!-- /AVATAR EXPANDED PHOTO MENU -->
         </div>
         <!-- /CHAT SECTION -->
       </div>
